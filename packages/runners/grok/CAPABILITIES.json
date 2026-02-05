@@ -1,0 +1,13 @@
+{
+  "runnerId": "grok",
+  "mode": "manual",
+  "network": "none",
+  "artifacts": "hashed",
+  "supports": [
+    "prompt",
+    "log",
+    "dateOverride"
+  ],
+  "notes": "Manual UI usage until API adapter is approved.",
+  "exec": "none"
+}

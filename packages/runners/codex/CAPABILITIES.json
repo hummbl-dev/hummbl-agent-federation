@@ -1,0 +1,13 @@
+{
+  "runnerId": "codex",
+  "mode": "manual",
+  "network": "restricted",
+  "artifacts": "hashed",
+  "supports": [
+    "prompt",
+    "log",
+    "dateOverride"
+  ],
+  "notes": "Manual UI/CLI usage; governed execution via run-cmd.sh.",
+  "exec": "allowlisted"
+}

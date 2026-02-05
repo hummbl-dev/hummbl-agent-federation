@@ -1,0 +1,18 @@
+# Worktrees
+.worktrees/
+
+# State
+_state/runs/*
+!_state/runs/.gitkeep
+packages/_state/runs/*
+!packages/_state/runs/.gitkeep
+node_modules/
+_state/evidence/*/*
+!_state/evidence/.gitkeep
+!_state/evidence/README.md
+configs/moltbot/*.local.json
+packages/*/src/**/*.js
+packages/*/src/**/*.d.ts
+packages/*/src/**/*.js.map
+packages/*/src/**/*.d.ts.map
+!packages/adapters/

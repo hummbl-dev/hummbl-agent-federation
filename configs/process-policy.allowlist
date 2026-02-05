@@ -1,0 +1,12 @@
+# Allowlisted executables for governed command execution
+# One executable name per line
+
+git
+node
+openclaw
+security
+fswatch
+lsof
+netstat
+pfctl
+openssl

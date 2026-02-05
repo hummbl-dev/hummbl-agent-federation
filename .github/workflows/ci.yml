@@ -1,0 +1,224 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  guardrails:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        shell: bash
+        run: npm ci
+
+      - name: Guard committed communication configs
+        shell: bash
+        run: node scripts/lint-comm-configs.mjs
+
+      - name: Guard committed LLM configs
+        shell: bash
+        run: node scripts/lint-llm-configs.mjs
+
+      - name: Lint external registry dependency language
+        shell: bash
+        run: node scripts/lint-no-external-registry-deps.mjs
+
+      - name: Validate VERSION format
+        shell: bash
+        run: |
+          if [[ ! -f VERSION ]]; then
+            echo "VERSION missing" >&2
+            exit 1
+          fi
+          line_count=$(awk 'END { print NR }' VERSION)
+          if [[ "${line_count}" != "1" ]]; then
+            echo "VERSION must be single line" >&2
+            exit 1
+          fi
+          if ! grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$' VERSION; then
+            echo "VERSION must match x.y.z" >&2
+            exit 1
+          fi
+
+      - name: Validate CURRENT_STATE headings
+        shell: bash
+        run: scripts/lint-state.sh
+
+      - name: Guard vendor changes in PR
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          git fetch origin main
+          changed_files=$(git diff --name-only origin/main...HEAD)
+          violations=$(echo "${changed_files}" | grep -E '^vendor/' | grep -vE '^vendor/(README\.md|UPSTREAM_PINS\.md|\.gitmodules)$' || true)
+          if [[ -n "${violations}" ]]; then
+            echo "Vendor changes not allowed:" >&2
+            echo "${violations}" >&2
+            exit 1
+          fi
+
+      - name: Validate sha256-file helper
+        shell: bash
+        run: |
+          if [[ ! -x scripts/sha256-file.sh ]]; then
+            echo "scripts/sha256-file.sh is not executable" >&2
+            exit 1
+          fi
+          if command -v sha256sum >/dev/null 2>&1 || command -v shasum >/dev/null 2>&1; then
+            tmpfile=$(mktemp)
+            printf "test" > "${tmpfile}"
+            scripts/sha256-file.sh "${tmpfile}"
+            rm -f "${tmpfile}"
+          else
+            echo "sha256sum/shasum not available; skipping hash check"
+          fi
+
+      - name: Check kernel decision note
+        shell: bash
+        run: scripts/check-kernel-decision.sh
+
+      - name: Lint skill registry
+        shell: bash
+        run: scripts/lint-skill-registry.sh
+
+      - name: Lint Base120 references
+        shell: bash
+        run: node scripts/validate-base120-refs.cjs
+
+      - name: Validate Base120 canonical JSON
+        shell: bash
+        run: node scripts/validate-base120-canonical.cjs
+
+      - name: Lint for legacy registry references
+        shell: bash
+        run: node scripts/lint-no-clawdhub.mjs
+
+      - name: Compute skills manifest
+        shell: bash
+        run: node scripts/registry/compute-skills-manifest.mjs
+
+      - name: Ensure skills manifest committed
+        shell: bash
+        run: |
+          git diff --exit-code skills/MANIFEST.json
+
+      - name: Verify skills manifest hashes
+        shell: bash
+        run: node scripts/registry/check-skills-manifest.mjs
+
+      - name: Lint ESM usage
+        shell: bash
+        run: node scripts/lint-esm.mjs
+
+      - name: Lint network policy
+        shell: bash
+        run: scripts/lint-network-policy.sh
+
+      - name: Lint secrets policy
+        shell: bash
+        run: scripts/lint-secrets-policy.sh
+
+      - name: Lint secret scan
+        shell: bash
+        run: scripts/lint-secret-scan.sh
+
+      - name: Lint artifact secrets
+        shell: bash
+        run: scripts/lint-artifact-secrets.sh
+
+      - name: Lint no-server
+        shell: bash
+        run: scripts/lint-no-server.sh
+
+      - name: Lint Base120 skill map
+        shell: bash
+        run: scripts/lint-base120-skill-map.sh
+
+      - name: Lint no TypeScript tests
+        shell: bash
+        run: scripts/lint-no-ts-tests.sh
+
+      - name: Offline LLM adapter tests
+        shell: bash
+        run: node --test packages/adapters/llm/tests/*.test.mjs
+
+      - name: Build router
+        shell: bash
+        working-directory: packages/router
+        run: npm install && npm run build
+
+      - name: Router tests
+        shell: bash
+        run: node --test packages/router/tests/*.test.mjs
+
+      - name: Lint SITREPs (if present)
+        shell: bash
+        run: |
+          files=$(git ls-files -z -- 'sessions/sitreps/SITREP-*.md' 'sitreps/SITREP-*.md' || true)
+          if [[ -z "${files}" ]]; then
+            echo "No SITREPs tracked; skipping"
+            exit 0
+          fi
+          while IFS= read -r -d '' file; do
+            scripts/lint-sitrep.sh "${file}"
+          done <<< "${files}"
+
+      - name: Lint runner capabilities
+        shell: bash
+        run: scripts/lint-runner-capabilities.sh
+
+      - name: Lint runner registry consistency
+        shell: bash
+        run: scripts/lint-runner-registry-consistency.sh
+
+      - name: Lint skill runner compatibility
+        shell: bash
+        run: scripts/lint-runner-compatibility.sh
+
+      - name: Lint evidence logs (if present)
+        shell: bash
+        run: scripts/lint-evidence.sh
+
+      - name: Lint router exports
+        shell: bash
+        run: scripts/lint-router-exports.sh
+
+      - name: Generate verify-hummbl JSON artifact
+        shell: bash
+        run: bash scripts/verify-hummbl.sh --emit-json > verify-hummbl-output.json
+
+      - name: Upload verify-hummbl artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: verify-hummbl-report
+          path: verify-hummbl-output.json
+          retention-days: 90
+
+      - name: Display verify-hummbl summary
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f verify-hummbl-output.json ]]; then
+            result=$(jq -r '.result' verify-hummbl-output.json)
+            missing=$(jq -r '.missing_transformations' verify-hummbl-output.json)
+            timestamp=$(jq -r '.timestamp' verify-hummbl-output.json)
+            
+            echo "## 📊 HUMMBL Verification Report" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+            echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+            echo "| Result | \`${result}\` |" >> $GITHUB_STEP_SUMMARY
+            echo "| Missing Transformations | ${missing} |" >> $GITHUB_STEP_SUMMARY
+            echo "| Timestamp | ${timestamp} |" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "📥 [Download full report artifact](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ verify-hummbl-output.json not found" >> $GITHUB_STEP_SUMMARY
+          fi
