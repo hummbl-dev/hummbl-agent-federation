@@ -1,0 +1,7 @@
+{
+  "name": "@hummbl/gas-engine",
+  "private": true,
+  "type": "module",
+  "version": "0.2.0",
+  "description": "HUMMBL G.A.S. Agent Policy Engine"
+}

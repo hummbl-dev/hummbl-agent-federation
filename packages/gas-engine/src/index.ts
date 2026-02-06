@@ -1,0 +1,61 @@
+/**
+ * HUMMBL G.A.S. Engine
+ * Policy validation, violation capture, and cross-domain enforcement
+ */
+
+// Types
+export * from './types';
+
+// CAES utilities
+export {
+  parseCAES,
+  getLevel,
+  compareCAES,
+  isWithinConstraints,
+  formatCAES,
+  getRiskDescription,
+  getAuthorityDescription,
+} from './caes';
+
+// Validator
+export {
+  validateAction,
+  validateActions,
+  getAllowedActions,
+  type ValidatorContext,
+} from './validator';
+
+// Violations
+export {
+  captureViolation,
+  getViolation,
+  getAllViolations,
+  getViolationsByType,
+  getViolationsBySeverity,
+  getViolationsByAction,
+  getUnresolvedViolations,
+  resolveViolation,
+  getViolationStats,
+  analyzePatterns,
+  getViolationsInRange,
+  clearViolations,
+  exportViolations,
+  importViolations,
+  type ViolationStats,
+  type ViolationPattern,
+} from './violations';
+
+// Enforcer
+export {
+  enforceAction,
+  enforceActions,
+  enforceCrossDomain,
+  recordEnforcementResult,
+  getEnforcementSummary,
+  resetEnforcementCounts,
+  type EnforcementOutcome,
+  type EnforcementResult,
+  type EnforcerConfig,
+  type DomainPolicy,
+  type EnforcementSummary,
+} from './enforcer';
