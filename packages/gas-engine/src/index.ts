@@ -59,3 +59,22 @@ export {
   type DomainPolicy,
   type EnforcementSummary,
 } from './enforcer';
+
+// Audit
+export {
+  storeAuditEvent,
+  getAuditEvent,
+  getAllAuditEvents,
+  getAuditEventsInRange,
+  getAuditEventsByActor,
+  getAuditEventsByAction,
+  getAuditEventsByOutcome,
+  clearAuditTrail,
+  exportAuditTrail,
+  importAuditTrail,
+  calculateComplianceScore,
+  generateComplianceReport,
+  formatReportAsMarkdown,
+  type ComplianceScore,
+  type ComplianceReport,
+} from './audit';
