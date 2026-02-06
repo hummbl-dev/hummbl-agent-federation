@@ -1,7 +1,7 @@
 ---
 name: hummbl-gas-agent
 description: Full-stack Governance-as-a-Service domain expert with autonomous operation and self-improvement capabilities
-version: 0.0.2
+version: 1.0.0
 model: opus
 tools:
   - Read
@@ -31,6 +31,17 @@ action_space:
   framework: CAES
   config: configs/gas/action-space.json
   spec: docs/specs/ACTION_SPACE.md
+engine:
+  package: "@hummbl/gas-engine"
+  version: "0.5.0"
+  modules:
+    - caes
+    - validator
+    - violations
+    - enforcer
+    - audit
+    - learning
+    - checkpoint
 ---
 
 # HUMMBL G.A.S. Agent
