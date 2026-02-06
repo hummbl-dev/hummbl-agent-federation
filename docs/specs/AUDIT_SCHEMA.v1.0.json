@@ -1,0 +1,163 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://hummbl.dev/schemas/audit/v1.0",
+  "title": "HUMMBL G.A.S. Audit Event Schema",
+  "version": "1.0.0",
+
+  "definitions": {
+    "AuditEvent": {
+      "type": "object",
+      "required": ["id", "timestamp", "action_id", "caes", "actor", "outcome", "policy_refs", "provenance"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Unique event identifier"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp"
+        },
+        "action_id": {
+          "type": "string",
+          "description": "The action that was audited"
+        },
+        "caes": {
+          "type": "string",
+          "pattern": "^C[0-5]-A[0-5]-E[0-5]-S[0-5]$|^UNKNOWN$",
+          "description": "CAES classification of the action"
+        },
+        "actor": {
+          "type": "string",
+          "description": "Entity that performed the action"
+        },
+        "target": {
+          "type": "string",
+          "description": "Optional target of the action"
+        },
+        "outcome": {
+          "type": "string",
+          "enum": ["ALLOWED", "BLOCKED", "ESCALATED"],
+          "description": "Result of enforcement"
+        },
+        "policy_refs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Policies that were evaluated"
+        },
+        "base120_refs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Base120 transformations applied"
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "input_hash": {
+              "type": "string",
+              "description": "Hash of input data"
+            },
+            "output_hash": {
+              "type": "string",
+              "description": "Hash of output data"
+            },
+            "checkpoint_id": {
+              "type": "string",
+              "description": "Associated checkpoint ID"
+            }
+          },
+          "description": "Provenance information for integrity"
+        },
+        "duration_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Execution duration in milliseconds"
+        }
+      }
+    },
+    "ComplianceReport": {
+      "type": "object",
+      "required": ["generated_at", "period", "score", "summary"],
+      "properties": {
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "period": {
+          "type": "object",
+          "required": ["start", "end"],
+          "properties": {
+            "start": { "type": "string", "format": "date-time" },
+            "end": { "type": "string", "format": "date-time" }
+          }
+        },
+        "score": {
+          "$ref": "#/definitions/ComplianceScore"
+        },
+        "summary": {
+          "type": "object",
+          "properties": {
+            "total_actions": { "type": "integer" },
+            "allowed": { "type": "integer" },
+            "blocked": { "type": "integer" },
+            "escalated": { "type": "integer" },
+            "violations": { "type": "integer" },
+            "unresolved_violations": { "type": "integer" }
+          }
+        },
+        "top_violations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "action_id": { "type": "string" },
+              "count": { "type": "integer" },
+              "type": { "type": "string" }
+            }
+          }
+        },
+        "audit_trail_hash": {
+          "type": "string",
+          "description": "Integrity hash of audit trail"
+        }
+      }
+    },
+    "ComplianceScore": {
+      "type": "object",
+      "required": ["overall", "breakdown", "grade"],
+      "properties": {
+        "overall": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "breakdown": {
+          "type": "object",
+          "properties": {
+            "policy_adherence": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "violation_rate": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "resolution_rate": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "audit_coverage": { "type": "integer", "minimum": 0, "maximum": 100 }
+          }
+        },
+        "grade": {
+          "type": "string",
+          "enum": ["A", "B", "C", "D", "F"]
+        },
+        "recommendations": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "type": "object",
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/AuditEvent" }
+    }
+  }
+}

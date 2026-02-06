@@ -1,0 +1,78 @@
+{
+  "version": "0.0.1",
+  "description": "Self-improvement configuration for the HUMMBL G.A.S. Agent",
+
+  "violation_learning": {
+    "enabled": true,
+    "capture": [
+      "violation_type",
+      "context",
+      "policy_that_failed",
+      "root_cause_analysis"
+    ],
+    "analysis": {
+      "frequency_threshold": 3,
+      "time_window_days": 30,
+      "pattern_detection": true,
+      "false_positive_tracking": true
+    },
+    "output": [
+      "policy_refinement_proposal",
+      "new_rule_suggestion",
+      "exception_pattern_recognition"
+    ]
+  },
+
+  "feedback_integration": {
+    "enabled": true,
+    "sources": [
+      "user_overrides",
+      "approval_patterns",
+      "rejection_reasons",
+      "audit_findings"
+    ],
+    "weights": {
+      "explicit_correction": 1.0,
+      "override_pattern": 0.7,
+      "approval_latency": 0.3,
+      "rejection": 0.8
+    }
+  },
+
+  "benchmark_alignment": {
+    "enabled": true,
+    "standards": [
+      "SOC2_Type_II",
+      "ISO_27001",
+      "NIST_CSF",
+      "CIS_Controls"
+    ],
+    "sync_schedule": "weekly",
+    "drift_detection": true,
+    "gap_analysis_schedule": "quarterly"
+  },
+
+  "proposal_generation": {
+    "enabled": true,
+    "gitops": {
+      "branch_prefix": "gas/learning",
+      "require_evidence": true,
+      "auto_assign_reviewers": true
+    },
+    "confidence_threshold": 0.75,
+    "require_pattern": true
+  },
+
+  "constraints": {
+    "no_single_incident_learning": true,
+    "no_self_expansion": true,
+    "rollback_window_hours": 72,
+    "audit_all_learning": true,
+    "max_change_rate_per_day": 0.05
+  },
+
+  "meta": {
+    "created": "2026-02-05",
+    "owner": "gas-agent"
+  }
+}

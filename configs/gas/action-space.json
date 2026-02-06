@@ -1,0 +1,262 @@
+{
+  "$schema": "../../docs/specs/ACTION_SPACE.v1.0.schema.json",
+  "version": "1.0.0",
+  "description": "HUMMBL G.A.S. Agent ACTION SPACE - CAES Classification",
+
+  "actions": [
+    {
+      "id": "read_policy",
+      "caes": "C0-A0-E0-S1",
+      "description": "Read a policy definition",
+      "authority": "A0-SELF",
+      "effect": "none",
+      "status": "ALLOWED"
+    },
+    {
+      "id": "list_violations",
+      "caes": "C0-A0-E0-S2",
+      "description": "List recorded violations in a domain",
+      "authority": "A0-SELF",
+      "effect": "none",
+      "status": "ALLOWED"
+    },
+    {
+      "id": "query_audit_log",
+      "caes": "C0-A0-E0-S3",
+      "description": "Query historical audit events",
+      "authority": "A0-SELF",
+      "effect": "none",
+      "status": "ALLOWED"
+    },
+    {
+      "id": "inspect_checkpoint",
+      "caes": "C0-A0-E0-S0",
+      "description": "Examine a checkpoint state",
+      "authority": "A0-SELF",
+      "effect": "none",
+      "status": "ALLOWED"
+    },
+    {
+      "id": "update_learning_state",
+      "caes": "C1-A0-E1-S0",
+      "description": "Update agent's learning model",
+      "authority": "A0-SELF",
+      "effect": "reversible",
+      "requires": ["checkpoint_before_update"],
+      "status": "ALLOWED"
+    },
+    {
+      "id": "write_checkpoint",
+      "caes": "C1-A0-E1-S0",
+      "description": "Create a state checkpoint",
+      "authority": "A0-SELF",
+      "effect": "reversible",
+      "status": "ALLOWED"
+    },
+    {
+      "id": "record_observation",
+      "caes": "C1-A1-E1-S1",
+      "description": "Record an observation for learning",
+      "authority": "A1-NOTIFY",
+      "effect": "reversible",
+      "status": "ALLOWED"
+    },
+    {
+      "id": "propose_improvement",
+      "caes": "C1-A1-E1-S2",
+      "description": "Suggest a governance improvement",
+      "authority": "A1-NOTIFY",
+      "effect": "reversible",
+      "requires": ["violation_evidence", "benchmark_gap"],
+      "status": "ALLOWED"
+    },
+    {
+      "id": "flag_violation",
+      "caes": "C2-A1-E2-S2",
+      "description": "Flag a policy violation for review",
+      "authority": "A1-NOTIFY",
+      "effect": "checkpoint-recoverable",
+      "triggers": ["escalation_check"],
+      "status": "ALLOWED"
+    },
+    {
+      "id": "propose_policy_update",
+      "caes": "C2-A2-E2-S2",
+      "description": "Propose changes to an existing policy",
+      "authority": "A2-REVIEW",
+      "effect": "checkpoint-recoverable",
+      "timeout": "72h",
+      "status": "ALLOWED"
+    },
+    {
+      "id": "recommend_escalation",
+      "caes": "C2-A1-E2-S2",
+      "description": "Recommend escalation to higher authority",
+      "authority": "A1-NOTIFY",
+      "effect": "checkpoint-recoverable",
+      "status": "ALLOWED"
+    },
+    {
+      "id": "trigger_benchmark",
+      "caes": "C2-A1-E2-S3",
+      "description": "Initiate a governance benchmark run",
+      "authority": "A1-NOTIFY",
+      "effect": "checkpoint-recoverable",
+      "cost_check": true,
+      "status": "ALLOWED"
+    },
+    {
+      "id": "enforce_policy",
+      "caes": "C3-A0-E3-S2",
+      "description": "Enforce an established policy",
+      "authority": "A0-SELF",
+      "effect": "compensating",
+      "requires": ["policy.approved"],
+      "status": "ALLOWED"
+    },
+    {
+      "id": "block_action",
+      "caes": "C3-A1-E3-S3",
+      "description": "Block a potentially violating action",
+      "authority": "A1-NOTIFY",
+      "effect": "compensating",
+      "escalates_to": "L2_review",
+      "timeout": "until_reviewed",
+      "status": "ALLOWED"
+    },
+    {
+      "id": "apply_remediation",
+      "caes": "C3-A2-E3-S2",
+      "description": "Apply an approved remediation",
+      "authority": "A2-REVIEW",
+      "effect": "compensating",
+      "requires": ["remediation.approved"],
+      "status": "ALLOWED"
+    },
+    {
+      "id": "rollback_to_checkpoint",
+      "caes": "C3-A2-E3-S3",
+      "description": "Rollback to a previous checkpoint",
+      "authority": "A2-REVIEW",
+      "effect": "compensating",
+      "requires": ["checkpoint.valid"],
+      "status": "ALLOWED"
+    },
+    {
+      "id": "update_escalation_rules",
+      "caes": "C4-A3-E4-S3",
+      "description": "Modify escalation thresholds or paths",
+      "authority": "A3-APPROVE",
+      "effect": "deferred-reversible",
+      "gitops": true,
+      "status": "RESTRICTED"
+    },
+    {
+      "id": "add_policy_domain",
+      "caes": "C4-A3-E4-S4",
+      "description": "Add a new governance domain",
+      "authority": "A3-APPROVE",
+      "effect": "deferred-reversible",
+      "gitops": true,
+      "status": "RESTRICTED"
+    },
+    {
+      "id": "modify_approval_gate",
+      "caes": "C4-A4-E4-S4",
+      "description": "Change approval gate requirements",
+      "authority": "A4-MULTI",
+      "effect": "deferred-reversible",
+      "gitops": true,
+      "ci_check": true,
+      "status": "RESTRICTED"
+    },
+    {
+      "id": "expand_autonomy",
+      "caes": "C5-A4-E5-S4",
+      "description": "Request expansion of autonomous boundaries",
+      "authority": "A4-MULTI",
+      "effect": "permanent",
+      "gitops": true,
+      "ci_check": true,
+      "status": "FORBIDDEN_WITHOUT_OVERRIDE"
+    },
+    {
+      "id": "modify_own_boundaries",
+      "caes": "C5-A4-E5-S0",
+      "description": "Attempt to modify own constraints",
+      "authority": "A4-MULTI",
+      "effect": "permanent",
+      "status": "FORBIDDEN"
+    },
+    {
+      "id": "bypass_approval_gate",
+      "caes": "C5-A5-E5-S4",
+      "description": "Emergency bypass of approval gate",
+      "authority": "A5-EMERGENCY",
+      "effect": "permanent",
+      "requires": ["active_incident"],
+      "triggers": ["immediate_audit"],
+      "status": "FORBIDDEN"
+    }
+  ],
+
+  "mrcc": {
+    "description": "Maximum Capability Constraints - Hard limits",
+    "max_classification": "C3",
+    "max_scope": "S3",
+    "max_effect": "E3",
+    "forbidden_actions": [
+      "expand_autonomy",
+      "modify_own_boundaries",
+      "bypass_approval_gate"
+    ],
+    "rate_limits": {
+      "C3_per_hour": 10,
+      "C2_per_hour": 100,
+      "C1_per_hour": 500,
+      "total_per_minute": 60
+    }
+  },
+
+  "ncc": {
+    "description": "Nominal Capability Constraints - Default operating limits",
+    "default_classification": "C2",
+    "default_scope": "S2",
+    "default_effect": "E2",
+    "preferred_actions": [
+      "read_policy",
+      "list_violations",
+      "query_audit_log",
+      "flag_violation",
+      "propose_improvement",
+      "record_observation",
+      "write_checkpoint"
+    ],
+    "discouraged_actions": [
+      "block_action",
+      "rollback_to_checkpoint",
+      "enforce_policy"
+    ]
+  },
+
+  "current_epoch": {
+    "id": "2026-02-05-001",
+    "started": "2026-02-05T00:00:00Z",
+    "policy_hash": "sha256:pending_initial_hash",
+    "mrcc_hash": "sha256:pending_initial_hash",
+    "monotonic_properties": [
+      "autonomy_level_cannot_increase",
+      "scope_cannot_expand",
+      "forbidden_stays_forbidden",
+      "mrcc_cannot_weaken",
+      "audit_cannot_disable"
+    ]
+  },
+
+  "meta": {
+    "created": "2026-02-05",
+    "framework": "CAES",
+    "governance_model": "epoch-bound-monotonic",
+    "ci_enforcement": true
+  }
+}
