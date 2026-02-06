@@ -106,3 +106,31 @@ export {
   type BenchmarkType,
   type BenchmarkGap,
 } from './learning';
+
+// Checkpoint
+export {
+  createCheckpoint,
+  getCheckpoint,
+  getAllCheckpoints,
+  getLatestCheckpoint,
+  rollbackToCheckpoint,
+  deleteCheckpoint,
+  clearCheckpoints,
+  validateCheckpoint,
+  checkModificationAllowed,
+  getGuards,
+  setGuardEnabled,
+  runHealthCheck,
+  autoRollbackIfNeeded,
+  type Checkpoint,
+  type CheckpointType,
+  type CheckpointState,
+  type RollbackResult,
+  type ValidationResult,
+  type ModificationGuard,
+  type GuardType,
+  type GuardAction,
+  type GuardCheckResult,
+  type HealthCheckResult,
+  type HealthCheck,
+} from './checkpoint';
