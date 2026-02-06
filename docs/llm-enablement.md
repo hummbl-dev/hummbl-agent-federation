@@ -1,73 +1,122 @@
 # LLM Enablement (applying **P1** framing and **SY8** systems thinking)
 
-## Anthropic Defaults
+## CRITICAL: NO API FEES Policy
 
-- `configs/moltbot/llm.anthropic.json` (enabled=false, dry_run=true, empty `allowed_models`)
-- No secrets stored; only timeout/model caps
+**All LLM access must use subscription-based or free methods. Direct API access is BLOCKED by default.**
 
-### Anthropic local override (gitignored)
+| Access Method | Cost Type | Status |
+|---------------|-----------|--------|
+| Claude Code (with Claude.ai subscription) | Flat-rate subscription | ALLOWED |
+| ChatGPT Plus/Team | Flat-rate subscription | ALLOWED |
+| Codex CLI (`chatgpt` auth) | Subscription-backed | ALLOWED |
+| Ollama (local) | Free | ALLOWED |
+| Grok (X Premium+) | Subscription | ALLOWED |
+| Direct API Keys | Per-token fees | **BLOCKED** |
 
-Create `configs/moltbot/llm.anthropic.local.json` locally with:
-
-```json
-{
-  "enabled": true,
-  "dry_run": false,
-  "allowed_models": ["claude-3-5-sonnet-latest"],
-  "max_output_tokens_default": 512
-}
+To enable API fees (REQUIRES EXPLICIT OWNER APPROVAL):
+```bash
+export MOLTBOT_ALLOW_API_FEES=1
 ```
 
-### Anthropic env vars for live calls
+## Allowed Access Methods
 
-- `MOLTBOT_LIVE_LLM_CALLS=1`
-- `MOLTBOT_ANTHROPIC_API_KEY=...`
+### Anthropic (Subscription-based)
 
-### Anthropic rollout steps
+Use Claude Code with a Claude.ai Max or Pro subscription:
 
-1. Enable override with `dry_run=true`, allowlist subset, confirm tuple logs.
-2. Set `MOLTBOT_LIVE_LLM_CALLS=1`, flip `dry_run=false`, confirm `model_not_allowed` for non-allowlisted models.
-3. Expand allowlist gradually; monitor tuple hashes + outputs.
-
-## OpenAI Defaults
-
-- `configs/moltbot/llm.openai.json` (enabled=false, dry_run=true, empty `allowed_models`)
-- Mirror of Anthropic safeguards (allowlist, token env, live guard)
-
-### OpenAI local override
-
-Create `configs/moltbot/llm.openai.local.json`:
-
-```json
-{
-  "enabled": true,
-  "dry_run": false,
-  "allowed_models": ["gpt-4.1-mini"],
-  "max_output_tokens_default": 512
-}
+```bash
+# Claude Code uses your Claude.ai subscription - no API fees
+claude --chat
 ```
 
-### OpenAI env vars
+**NOT allowed without approval:**
+- Direct `ANTHROPIC_API_KEY` usage (incurs per-token fees)
 
-- `MOLTBOT_LIVE_LLM_CALLS=1` (same guard)
-- `MOLTBOT_OPENAI_API_KEY=...`
+### OpenAI (Subscription-based)
 
-### OpenAI rollout steps
+Use ChatGPT Plus subscription or Codex CLI with `chatgpt` auth:
 
-Same as Anthropic: dry-run first, then require env + allowlist before live.
+```bash
+# Codex with chatgpt auth - uses your ChatGPT Plus subscription
+codex --provider chatgpt
+```
 
-## Routing policy
+**NOT allowed without approval:**
+- Direct `OPENAI_API_KEY` usage (incurs per-token fees)
 
-- Deterministic selection lives in `configs/moltbot/llm-routing-policy.json`.
-- `scope.vendor` inside the Tuple determines which vendor(s) are eligible (`anthropic`, `openai`, or `any`).
-- `scope.purpose` influences preference order via `purpose_vendor_preference`.
-- `scope.model` is compared against `vendor_model_hints` for additional scoring, but runtime adapters still enforce their own allowlists.
+### Local Models (Free)
 
-## Failure codes (both vendors)
+Use Ollama or llama.cpp for completely free local inference:
 
-- `config_disabled`
-- `model_not_allowed`
-- `live_guard_disabled`
-- `auth_missing`
-- `provider_error:<status>`
-- `internal_error`
+```bash
+# Ollama - free local models
+ollama run llama3.2
+```
+
+## Configuration Files
+
+### Cost Policy
+
+`configs/cost-policy.json` - Master cost control policy:
+- `allow_api_fees: false` (default)
+- `allowed_access_methods`: subscription and free only
+- `blocked_access_methods`: api-key-direct
+
+### LLM Configs
+
+Both `configs/moltbot/llm.anthropic.json` and `configs/moltbot/llm.openai.json`:
+- `enabled: false` (disabled by default)
+- `dry_run: true` (dry-run even if enabled)
+- `allowed_models: []` (empty - no models enabled)
+- `blocked_models: [list]` (all paid API models blocked)
+- `cost_policy.allow_api_fees: false`
+
+### Secrets Policy
+
+`configs/secrets-policy.json`:
+- API keys moved to `restrictedSecrets`
+- Requires `MOLTBOT_ALLOW_API_FEES=1` to use
+
+## Enabling API Access (Requires Owner Approval)
+
+If you absolutely need direct API access (incurs costs):
+
+1. Get explicit owner approval
+2. Set environment variable:
+   ```bash
+   export MOLTBOT_ALLOW_API_FEES=1
+   ```
+3. Create local override (gitignored):
+   ```bash
+   # configs/moltbot/llm.anthropic.local.json
+   {
+     "enabled": true,
+     "dry_run": false,
+     "allowed_models": ["claude-3-5-sonnet-latest"]
+   }
+   ```
+4. Set API key:
+   ```bash
+   export MOLTBOT_ANTHROPIC_API_KEY=...
+   ```
+5. Enable live calls:
+   ```bash
+   export MOLTBOT_LIVE_LLM_CALLS=1
+   ```
+
+## Failure Codes
+
+- `config_disabled` - LLM calls disabled
+- `model_not_allowed` - Model not in allowlist
+- `model_blocked` - Model in blocklist
+- `live_guard_disabled` - Live calls not enabled
+- `api_fees_blocked` - API fees not approved
+- `auth_missing` - Missing credentials
+- `cost_policy_violation` - Violates cost policy
+
+## Routing Policy
+
+`configs/moltbot/llm-routing-policy.json`:
+- Prefers: local → subscription → api
+- API vendor disabled by default
+- Fallback order: ollama → subscription.anthropic → subscription.openai

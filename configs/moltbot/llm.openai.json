@@ -3,9 +3,30 @@
   "dry_run": true,
   "token_env": "MOLTBOT_OPENAI_API_KEY",
   "timeout_ms": 15000,
-  "default_model": "gpt-4.1-mini",
+  "default_model": null,
   "max_output_tokens_default": 512,
   "max_output_tokens_cap": 2048,
   "allowed_models": [],
-  "live_guard_env": "MOLTBOT_LIVE_LLM_CALLS"
+  "blocked_models": [
+    "gpt-4",
+    "gpt-4-turbo",
+    "gpt-4o",
+    "gpt-4o-mini",
+    "gpt-4.1",
+    "gpt-4.1-mini",
+    "gpt-3.5-turbo",
+    "o1",
+    "o1-mini",
+    "o1-preview",
+    "o3-mini"
+  ],
+  "live_guard_env": "MOLTBOT_LIVE_LLM_CALLS",
+  "cost_policy": {
+    "allow_api_fees": false,
+    "require_subscription_auth": true,
+    "allowed_access_methods": ["chatgpt-plus-subscription", "chatgpt-team", "codex-cli-auth"],
+    "blocked_access_methods": ["api-key-direct"],
+    "override_env": "MOLTBOT_ALLOW_API_FEES"
+  },
+  "notes": "API-based models BLOCKED. Use ChatGPT Plus subscription or Codex CLI with 'chatgpt' auth (no API fees). Set MOLTBOT_ALLOW_API_FEES=1 ONLY with explicit owner approval."
 }

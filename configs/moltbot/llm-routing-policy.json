@@ -1,14 +1,57 @@
 {
-  "version": "0.1.0",
-  "vendor_default_order": ["anthropic", "openai"],
-  "purpose_vendor_preference": {
-    "plan": ["anthropic", "openai"],
-    "summarize": ["openai", "anthropic"],
-    "code_review": ["anthropic", "openai"],
-    "extract": ["openai", "anthropic"]
+  "version": "0.2.0",
+  "description": "LLM routing with subscription-only access (NO API fees)",
+
+  "cost_policy_ref": "../cost-policy.json",
+
+  "vendor_default_order": ["local", "subscription", "api"],
+
+  "allowed_vendors": {
+    "local": {
+      "providers": ["ollama", "llamacpp"],
+      "cost_type": "free",
+      "enabled": true
+    },
+    "subscription": {
+      "anthropic": {
+        "methods": ["claude-code-subscription", "claude-ai-subscription"],
+        "cost_type": "flat-rate",
+        "enabled": true
+      },
+      "openai": {
+        "methods": ["chatgpt-plus-subscription", "codex-cli-auth"],
+        "cost_type": "flat-rate",
+        "enabled": true
+      },
+      "xai": {
+        "methods": ["grok-subscription"],
+        "cost_type": "flat-rate",
+        "enabled": true
+      }
+    },
+    "api": {
+      "description": "Direct API access - BLOCKED by default (incurs fees)",
+      "enabled": false,
+      "override_env": "MOLTBOT_ALLOW_API_FEES"
+    }
   },
-  "vendor_model_hints": {
-    "anthropic": ["claude-3-5-sonnet-latest"],
-    "openai": ["gpt-4.1-mini"]
-  }
+
+  "purpose_vendor_preference": {
+    "plan": ["subscription.anthropic", "subscription.openai", "local"],
+    "summarize": ["subscription.openai", "subscription.anthropic", "local"],
+    "code_review": ["subscription.anthropic", "local"],
+    "extract": ["subscription.openai", "local"]
+  },
+
+  "fallback_order": [
+    "local.ollama",
+    "subscription.anthropic",
+    "subscription.openai"
+  ],
+
+  "notes": [
+    "Prefers local models (free), then subscription-based access.",
+    "Direct API access is BLOCKED unless MOLTBOT_ALLOW_API_FEES=1.",
+    "This ensures NO API fees without explicit owner approval."
+  ]
 }

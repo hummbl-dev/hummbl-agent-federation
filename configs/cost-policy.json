@@ -1,0 +1,102 @@
+{
+  "version": "0.1.0",
+  "description": "Cost control policy - NO API FEES without explicit owner approval",
+
+  "default_policy": {
+    "allow_api_fees": false,
+    "allow_usage_based_billing": false,
+    "allow_per_token_costs": false
+  },
+
+  "allowed_access_methods": {
+    "anthropic": [
+      {
+        "method": "claude-code-subscription",
+        "description": "Claude Code with Claude.ai Max/Pro subscription",
+        "cost_type": "flat-rate-subscription",
+        "api_fees": false
+      },
+      {
+        "method": "claude-ai-subscription",
+        "description": "Claude.ai Pro/Team subscription",
+        "cost_type": "flat-rate-subscription",
+        "api_fees": false
+      }
+    ],
+    "openai": [
+      {
+        "method": "chatgpt-plus-subscription",
+        "description": "ChatGPT Plus subscription ($20/month)",
+        "cost_type": "flat-rate-subscription",
+        "api_fees": false
+      },
+      {
+        "method": "chatgpt-team",
+        "description": "ChatGPT Team subscription",
+        "cost_type": "flat-rate-subscription",
+        "api_fees": false
+      },
+      {
+        "method": "codex-cli-auth",
+        "description": "Codex CLI using 'chatgpt' auth (subscription-backed)",
+        "cost_type": "flat-rate-subscription",
+        "api_fees": false
+      }
+    ],
+    "local": [
+      {
+        "method": "ollama",
+        "description": "Local Ollama models (llama3.2, etc.)",
+        "cost_type": "free",
+        "api_fees": false
+      },
+      {
+        "method": "llamacpp",
+        "description": "Local llama.cpp models",
+        "cost_type": "free",
+        "api_fees": false
+      }
+    ],
+    "xai": [
+      {
+        "method": "grok-subscription",
+        "description": "X Premium+ subscription with Grok access",
+        "cost_type": "flat-rate-subscription",
+        "api_fees": false
+      }
+    ]
+  },
+
+  "blocked_access_methods": [
+    {
+      "method": "api-key-direct",
+      "description": "Direct API key usage with per-token billing",
+      "reason": "Incurs API fees - explicitly blocked"
+    },
+    {
+      "method": "pay-as-you-go",
+      "description": "Usage-based billing APIs",
+      "reason": "Incurs API fees - explicitly blocked"
+    }
+  ],
+
+  "override": {
+    "env_var": "MOLTBOT_ALLOW_API_FEES",
+    "required_value": "1",
+    "warning": "REQUIRES EXPLICIT OWNER APPROVAL - This will incur API costs",
+    "audit_required": true
+  },
+
+  "enforcement": {
+    "block_on_violation": true,
+    "log_attempts": true,
+    "alert_on_override_use": true
+  },
+
+  "notes": [
+    "This policy ensures NO API FEES are incurred without explicit approval.",
+    "All LLM access must use subscription-based or free methods.",
+    "API key direct access is BLOCKED by default.",
+    "To enable API fees: set MOLTBOT_ALLOW_API_FEES=1 (requires owner approval)."
+  ]
+}
