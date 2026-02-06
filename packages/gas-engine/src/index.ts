@@ -78,3 +78,31 @@ export {
   type ComplianceScore,
   type ComplianceReport,
 } from './audit';
+
+// Learning
+export {
+  getLearningState,
+  updateLearningState,
+  resetLearningState,
+  learnFromViolations,
+  recordFeedback,
+  generateProposal,
+  runBenchmark,
+  getProposalsByStatus,
+  updateProposalStatus,
+  exportLearningState,
+  importLearningState,
+  type LearningState,
+  type LearnedPattern,
+  type PatternType,
+  type SuggestedAction,
+  type FeedbackRecord,
+  type FeedbackType,
+  type WeightAdjustments,
+  type PolicyProposal,
+  type ProposalStatus,
+  type ProposalType,
+  type BenchmarkResult,
+  type BenchmarkType,
+  type BenchmarkGap,
+} from './learning';

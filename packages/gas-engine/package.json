@@ -2,6 +2,6 @@
   "name": "@hummbl/gas-engine",
   "private": true,
   "type": "module",
-  "version": "0.3.0",
-  "description": "HUMMBL G.A.S. Agent Policy Engine with Audit"
+  "version": "0.4.0",
+  "description": "HUMMBL G.A.S. Agent Policy Engine with Learning"
 }
