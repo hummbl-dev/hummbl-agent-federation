@@ -2,7 +2,7 @@
 name: sy14-risk-and-resilience-engineering
 description: Apply SY14 Risk & Resilience Engineering to build systems that fail gracefully and recover automatically.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy14-risk-and-resilience-engineering","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy14-risk-and-resilience-engineering","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # SY14 Risk & Resilience Engineering
@@ -94,7 +94,7 @@ const result = applyModel("SY14", "Build systems that fail gracefully and recove
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy14-risk-and-resilience-engineering"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("SY14", "Build systems that fail gracefully and recove
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/sy14-risk-and-resilience-engineering
+openclaw-registry install hummbl-agent/sy14-risk-and-resilience-engineering
 ```
 
 ### Usage with Commands

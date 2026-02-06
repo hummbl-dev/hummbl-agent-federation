@@ -2,7 +2,7 @@
 name: co16-system-integration-testing
 description: Apply CO16 System Integration Testing to verify assembled components work correctly together, not just in isolation.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co16-system-integration-testing","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co16-system-integration-testing","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO16 System Integration Testing
@@ -94,7 +94,7 @@ const result = applyModel("CO16", "Verify assembled components work correctly to
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co16-system-integration-testing"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO16", "Verify assembled components work correctly to
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co16-system-integration-testing
+openclaw-registry install hummbl-agent/co16-system-integration-testing
 ```
 
 ### Usage with Commands

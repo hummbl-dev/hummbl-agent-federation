@@ -2,7 +2,7 @@
 name: sy1-leverage-points
 description: Apply SY1 Leverage Points to identify intervention points where small changes produce disproportionate effects.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy1-leverage-points","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy1-leverage-points","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # SY1 Leverage Points
@@ -94,7 +94,7 @@ const result = applyModel("SY1", "Identify intervention points where small chang
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy1-leverage-points"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("SY1", "Identify intervention points where small chang
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/sy1-leverage-points
+openclaw-registry install hummbl-agent/sy1-leverage-points
 ```
 
 ### Usage with Commands

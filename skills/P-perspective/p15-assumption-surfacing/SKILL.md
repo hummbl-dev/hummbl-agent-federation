@@ -2,7 +2,7 @@
 name: p15-assumption-surfacing
 description: Apply P15 Assumption Surfacing to explicitly identify and document beliefs underlying plans or models.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p15-assumption-surfacing","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p15-assumption-surfacing","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # P15 Assumption Surfacing
@@ -94,7 +94,7 @@ const result = applyModel("P15", "Explicitly identify and document beliefs under
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p15-assumption-surfacing"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("P15", "Explicitly identify and document beliefs under
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/p15-assumption-surfacing
+openclaw-registry install hummbl-agent/p15-assumption-surfacing
 ```
 
 ### Usage with Commands

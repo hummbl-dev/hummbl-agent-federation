@@ -2,7 +2,7 @@
 name: sy16-ecosystem-strategy
 description: Apply SY16 Ecosystem Strategy to position organization within network of partners, competitors, and stakeholders.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy16-ecosystem-strategy","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy16-ecosystem-strategy","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # SY16 Ecosystem Strategy
@@ -94,7 +94,7 @@ const result = applyModel("SY16", "Position organization within network of partn
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy16-ecosystem-strategy"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("SY16", "Position organization within network of partn
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/sy16-ecosystem-strategy
+openclaw-registry install hummbl-agent/sy16-ecosystem-strategy
 ```
 
 ### Usage with Commands

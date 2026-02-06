@@ -2,7 +2,7 @@
 name: co7-network-effects
 description: Apply CO7 Network Effects to exploit increasing value as user base or connections grow.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co7-network-effects","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co7-network-effects","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO7 Network Effects
@@ -94,7 +94,7 @@ const result = applyModel("CO7", "Exploit increasing value as user base or conne
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co7-network-effects"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO7", "Exploit increasing value as user base or conne
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co7-network-effects
+openclaw-registry install hummbl-agent/co7-network-effects
 ```
 
 ### Usage with Commands

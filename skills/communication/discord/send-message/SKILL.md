@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Send a text message to a Discord channel via a Moltbot adapter.
+Send a text message to a Discord channel via a OpenClaw adapter.
 
 ## Inputs
 

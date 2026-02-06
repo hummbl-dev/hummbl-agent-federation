@@ -7,7 +7,7 @@ import { createRequire } from "node:module";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, "../../../..");
-const LOCAL_CFG = join(REPO_ROOT, "configs/moltbot/llm.anthropic.local.json");
+const LOCAL_CFG = join(REPO_ROOT, "configs/openclaw/llm.anthropic.local.json");
 
 const require = createRequire(import.meta.url);
 const call = require(join(REPO_ROOT, "packages/adapters/llm/anthropic/call.cjs"));
@@ -23,8 +23,8 @@ const tuple = "0".repeat(64);
 
 test("anthropic: config_disabled by default", async () => {
   removeLocal();
-  delete process.env.MOLTBOT_LIVE_LLM_CALLS;
-  delete process.env.MOLTBOT_ANTHROPIC_API_KEY;
+  delete process.env.OPENCLAW_LIVE_LLM_CALLS;
+  delete process.env.OPENCLAW_ANTHROPIC_API_KEY;
 
   const res = await call.run({ purpose: "plan", prompt: "hello", tuple_sha256: tuple });
   assert.equal(res.ok, false);
@@ -50,15 +50,15 @@ test("anthropic: live_guard_disabled when dry_run=false but guard missing", asyn
     default_model: "claude-3-5-sonnet-latest"
   });
 
-  process.env.MOLTBOT_LIVE_LLM_CALLS = "0";
-  process.env.MOLTBOT_ANTHROPIC_API_KEY = "x";
+  process.env.OPENCLAW_LIVE_LLM_CALLS = "0";
+  process.env.OPENCLAW_ANTHROPIC_API_KEY = "x";
 
   const res = await call.run({ purpose: "plan", prompt: "hello", tuple_sha256: tuple });
   assert.equal(res.ok, false);
   assert.equal(res.error, "live_guard_disabled");
   removeLocal();
-  delete process.env.MOLTBOT_LIVE_LLM_CALLS;
-  delete process.env.MOLTBOT_ANTHROPIC_API_KEY;
+  delete process.env.OPENCLAW_LIVE_LLM_CALLS;
+  delete process.env.OPENCLAW_ANTHROPIC_API_KEY;
 });
 
 test("anthropic: auth_missing when guard enabled but token missing", async () => {
@@ -70,12 +70,12 @@ test("anthropic: auth_missing when guard enabled but token missing", async () =>
     default_model: "claude-3-5-sonnet-latest"
   });
 
-  process.env.MOLTBOT_LIVE_LLM_CALLS = "1";
-  delete process.env.MOLTBOT_ANTHROPIC_API_KEY;
+  process.env.OPENCLAW_LIVE_LLM_CALLS = "1";
+  delete process.env.OPENCLAW_ANTHROPIC_API_KEY;
 
   const res = await call.run({ purpose: "plan", prompt: "hello", tuple_sha256: tuple });
   assert.equal(res.ok, false);
   assert.equal(res.error, "auth_missing");
   removeLocal();
-  delete process.env.MOLTBOT_LIVE_LLM_CALLS;
+  delete process.env.OPENCLAW_LIVE_LLM_CALLS;
 });

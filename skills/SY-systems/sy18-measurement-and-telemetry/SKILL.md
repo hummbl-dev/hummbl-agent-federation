@@ -2,7 +2,7 @@
 name: sy18-measurement-and-telemetry
 description: Apply SY18 Measurement & Telemetry to instrument systems to capture state, changes, and anomalies for informed response.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy18-measurement-and-telemetry","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy18-measurement-and-telemetry","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # SY18 Measurement & Telemetry
@@ -94,7 +94,7 @@ const result = applyModel("SY18", "Instrument systems to capture state, changes,
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy18-measurement-and-telemetry"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("SY18", "Instrument systems to capture state, changes,
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/sy18-measurement-and-telemetry
+openclaw-registry install hummbl-agent/sy18-measurement-and-telemetry
 ```
 
 ### Usage with Commands

@@ -2,7 +2,7 @@
 name: de12-constraint-isolation
 description: Apply DE12 Constraint Isolation to identify specific limiting factor preventing performance improvement.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de12-constraint-isolation","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de12-constraint-isolation","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # DE12 Constraint Isolation
@@ -94,7 +94,7 @@ const result = applyModel("DE12", "Identify specific limiting factor preventing 
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de12-constraint-isolation"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("DE12", "Identify specific limiting factor preventing 
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/de12-constraint-isolation
+openclaw-registry install hummbl-agent/de12-constraint-isolation
 ```
 
 ### Usage with Commands

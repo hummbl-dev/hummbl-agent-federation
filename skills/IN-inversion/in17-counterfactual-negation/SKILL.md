@@ -2,7 +2,7 @@
 name: in17-counterfactual-negation
 description: Apply IN17 Counterfactual Negation to imagine outcomes if key decision had been reversed.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in17-counterfactual-negation","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in17-counterfactual-negation","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # IN17 Counterfactual Negation
@@ -94,7 +94,7 @@ const result = applyModel("IN17", "Imagine outcomes if key decision had been rev
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in17-counterfactual-negation"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("IN17", "Imagine outcomes if key decision had been rev
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/in17-counterfactual-negation
+openclaw-registry install hummbl-agent/in17-counterfactual-negation
 ```
 
 ### Usage with Commands

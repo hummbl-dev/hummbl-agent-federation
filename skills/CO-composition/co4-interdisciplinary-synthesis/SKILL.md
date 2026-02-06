@@ -2,7 +2,7 @@
 name: co4-interdisciplinary-synthesis
 description: Apply CO4 Interdisciplinary Synthesis to merge insights from distinct fields to generate novel solutions.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co4-interdisciplinary-synthesis","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co4-interdisciplinary-synthesis","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO4 Interdisciplinary Synthesis
@@ -94,7 +94,7 @@ const result = applyModel("CO4", "Merge insights from distinct fields to generat
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co4-interdisciplinary-synthesis"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO4", "Merge insights from distinct fields to generat
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co4-interdisciplinary-synthesis
+openclaw-registry install hummbl-agent/co4-interdisciplinary-synthesis
 ```
 
 ### Usage with Commands

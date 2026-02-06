@@ -2,7 +2,7 @@
 name: sy10-causal-loop-diagrams
 description: Apply SY10 Causal Loop Diagrams to visualize circular cause-effect relationships with reinforcing and balancing dynamics.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy10-causal-loop-diagrams","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy10-causal-loop-diagrams","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # SY10 Causal Loop Diagrams
@@ -94,7 +94,7 @@ const result = applyModel("SY10", "Visualize circular cause-effect relationships
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy10-causal-loop-diagrams"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("SY10", "Visualize circular cause-effect relationships
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/sy10-causal-loop-diagrams
+openclaw-registry install hummbl-agent/sy10-causal-loop-diagrams
 ```
 
 ### Usage with Commands

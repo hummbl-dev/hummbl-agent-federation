@@ -7,7 +7,7 @@ import { createRequire } from "node:module";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, "../../../..");
-const LOCAL_CFG = join(REPO_ROOT, "configs/moltbot/llm.openai.local.json");
+const LOCAL_CFG = join(REPO_ROOT, "configs/openclaw/llm.openai.local.json");
 
 const require = createRequire(import.meta.url);
 const call = require(join(REPO_ROOT, "packages/adapters/llm/openai/call.cjs"));
@@ -32,8 +32,8 @@ function baseInput(extra = {}) {
 
 test("openai: config_disabled by default", async () => {
   removeLocal();
-  delete process.env.MOLTBOT_LIVE_LLM_CALLS;
-  delete process.env.MOLTBOT_OPENAI_API_KEY;
+  delete process.env.OPENCLAW_LIVE_LLM_CALLS;
+  delete process.env.OPENCLAW_OPENAI_API_KEY;
   const res = await call.run(baseInput());
   assert.equal(res.ok, false);
   assert.equal(res.error, "config_disabled");
@@ -56,14 +56,14 @@ test("openai: live_guard_disabled when dry_run=false but guard missing", async (
     allowed_models: ["gpt-4.1-mini"],
     default_model: "gpt-4.1-mini"
   });
-  process.env.MOLTBOT_LIVE_LLM_CALLS = "0";
-  process.env.MOLTBOT_OPENAI_API_KEY = "x";
+  process.env.OPENCLAW_LIVE_LLM_CALLS = "0";
+  process.env.OPENCLAW_OPENAI_API_KEY = "x";
   const res = await call.run(baseInput());
   assert.equal(res.ok, false);
   assert.equal(res.error, "live_guard_disabled");
   removeLocal();
-  delete process.env.MOLTBOT_LIVE_LLM_CALLS;
-  delete process.env.MOLTBOT_OPENAI_API_KEY;
+  delete process.env.OPENCLAW_LIVE_LLM_CALLS;
+  delete process.env.OPENCLAW_OPENAI_API_KEY;
 });
 
 test("openai: auth_missing when guard enabled but token absent", async () => {
@@ -74,13 +74,13 @@ test("openai: auth_missing when guard enabled but token absent", async () => {
     allowed_models: ["gpt-4.1-mini"],
     default_model: "gpt-4.1-mini"
   });
-  process.env.MOLTBOT_LIVE_LLM_CALLS = "1";
-  delete process.env.MOLTBOT_OPENAI_API_KEY;
+  process.env.OPENCLAW_LIVE_LLM_CALLS = "1";
+  delete process.env.OPENCLAW_OPENAI_API_KEY;
   const res = await call.run(baseInput());
   assert.equal(res.ok, false);
   assert.equal(res.error, "auth_missing");
   removeLocal();
-  delete process.env.MOLTBOT_LIVE_LLM_CALLS;
+  delete process.env.OPENCLAW_LIVE_LLM_CALLS;
 });
 
 test("openai: prompt length guard", async () => {

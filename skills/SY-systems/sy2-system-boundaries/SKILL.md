@@ -2,7 +2,7 @@
 name: sy2-system-boundaries
 description: Apply SY2 System Boundaries to define what is inside versus outside system scope for analysis or design.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy2-system-boundaries","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy2-system-boundaries","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # SY2 System Boundaries
@@ -94,7 +94,7 @@ const result = applyModel("SY2", "Define what is inside versus outside system sc
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy2-system-boundaries"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("SY2", "Define what is inside versus outside system sc
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/sy2-system-boundaries
+openclaw-registry install hummbl-agent/sy2-system-boundaries
 ```
 
 ### Usage with Commands

@@ -2,7 +2,7 @@
 name: co11-pattern-composition-tiling
 description: Apply CO11 Pattern Composition (Tiling) to combine repeating elements to construct complex structures efficiently.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co11-pattern-composition-tiling","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co11-pattern-composition-tiling","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO11 Pattern Composition (Tiling)
@@ -94,7 +94,7 @@ const result = applyModel("CO11", "Combine repeating elements to construct compl
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co11-pattern-composition-tiling"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO11", "Combine repeating elements to construct compl
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co11-pattern-composition-tiling
+openclaw-registry install hummbl-agent/co11-pattern-composition-tiling
 ```
 
 ### Usage with Commands

@@ -1,6 +1,6 @@
 # UPSTREAM_MAPPING
 
-## moltbot
+## openclaw
 
 ### What we borrow
 
@@ -16,7 +16,7 @@
 - Adapter layer under packages/ wraps inputs/outputs
 - Skill layer under packages/ binds domain workflows
 
-## moltbot-registry
+## openclaw-registry
 
 ### What we borrow
 

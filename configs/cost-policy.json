@@ -81,7 +81,7 @@
   ],
 
   "override": {
-    "env_var": "MOLTBOT_ALLOW_API_FEES",
+    "env_var": "OPENCLAW_ALLOW_API_FEES",
     "required_value": "1",
     "warning": "REQUIRES EXPLICIT OWNER APPROVAL - This will incur API costs",
     "audit_required": true
@@ -97,6 +97,6 @@
     "This policy ensures NO API FEES are incurred without explicit approval.",
     "All LLM access must use subscription-based or free methods.",
     "API key direct access is BLOCKED by default.",
-    "To enable API fees: set MOLTBOT_ALLOW_API_FEES=1 (requires owner approval)."
+    "To enable API fees: set OPENCLAW_ALLOW_API_FEES=1 (requires owner approval)."
   ]
 }

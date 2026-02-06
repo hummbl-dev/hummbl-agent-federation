@@ -32,7 +32,7 @@
     "api": {
       "description": "Direct API access - BLOCKED by default (incurs fees)",
       "enabled": false,
-      "override_env": "MOLTBOT_ALLOW_API_FEES"
+      "override_env": "OPENCLAW_ALLOW_API_FEES"
     }
   },
 
@@ -51,7 +51,7 @@
 
   "notes": [
     "Prefers local models (free), then subscription-based access.",
-    "Direct API access is BLOCKED unless MOLTBOT_ALLOW_API_FEES=1.",
+    "Direct API access is BLOCKED unless OPENCLAW_ALLOW_API_FEES=1.",
     "This ensures NO API fees without explicit owner approval."
   ]
 }

@@ -2,7 +2,7 @@
 name: de13-failure-mode-analysis-fmea
 description: Apply DE13 Failure Mode Analysis (FMEA) to enumerate potential failure points with severity, likelihood, and detectability ratings.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de13-failure-mode-analysis-fmea","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de13-failure-mode-analysis-fmea","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # DE13 Failure Mode Analysis (FMEA)
@@ -94,7 +94,7 @@ const result = applyModel("DE13", "Enumerate potential failure points with sever
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de13-failure-mode-analysis-fmea"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("DE13", "Enumerate potential failure points with sever
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/de13-failure-mode-analysis-fmea
+openclaw-registry install hummbl-agent/de13-failure-mode-analysis-fmea
 ```
 
 ### Usage with Commands

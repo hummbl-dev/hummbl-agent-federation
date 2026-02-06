@@ -2,7 +2,7 @@
 name: p17-frame-control-and-reframing
 description: Apply P17 Frame Control & Reframing to consciously select or reshape interpretive frames to enable new solutions.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p17-frame-control-and-reframing","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p17-frame-control-and-reframing","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # P17 Frame Control & Reframing
@@ -94,7 +94,7 @@ const result = applyModel("P17", "Consciously select or reshape interpretive fra
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p17-frame-control-and-reframing"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("P17", "Consciously select or reshape interpretive fra
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/p17-frame-control-and-reframing
+openclaw-registry install hummbl-agent/p17-frame-control-and-reframing
 ```
 
 ### Usage with Commands

@@ -2,7 +2,7 @@
 name: re18-anti-catastrophic-forgetting
 description: Apply RE18 Anti-Catastrophic Forgetting to preserve critical knowledge while adapting to new information.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re18-anti-catastrophic-forgetting","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re18-anti-catastrophic-forgetting","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # RE18 Anti-Catastrophic Forgetting
@@ -94,7 +94,7 @@ const result = applyModel("RE18", "Preserve critical knowledge while adapting to
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re18-anti-catastrophic-forgetting"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("RE18", "Preserve critical knowledge while adapting to
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/re18-anti-catastrophic-forgetting
+openclaw-registry install hummbl-agent/re18-anti-catastrophic-forgetting
 ```
 
 ### Usage with Commands

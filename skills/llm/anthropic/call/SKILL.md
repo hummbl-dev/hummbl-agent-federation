@@ -23,5 +23,5 @@ Requires TupleV1 with:
 
 - Repo-tracked config: `enabled=false`, `dry_run=true`, empty allowlist
 - `.local` overrides enable per-install control
-- Live sends require `MOLTBOT_LIVE_LLM_CALLS=1` + allowlisted model + env token
+- Live sends require `OPENCLAW_LIVE_LLM_CALLS=1` + allowlisted model + env token
 - Prompt text never logged by the adapter

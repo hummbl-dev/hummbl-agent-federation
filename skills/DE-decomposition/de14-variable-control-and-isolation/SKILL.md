@@ -2,7 +2,7 @@
 name: de14-variable-control-and-isolation
 description: Apply DE14 Variable Control & Isolation to hold factors constant to measure single variable's causal impact.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de14-variable-control-and-isolation","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de14-variable-control-and-isolation","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # DE14 Variable Control & Isolation
@@ -94,7 +94,7 @@ const result = applyModel("DE14", "Hold factors constant to measure single varia
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de14-variable-control-and-isolation"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("DE14", "Hold factors constant to measure single varia
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/de14-variable-control-and-isolation
+openclaw-registry install hummbl-agent/de14-variable-control-and-isolation
 ```
 
 ### Usage with Commands

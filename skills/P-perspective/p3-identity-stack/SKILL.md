@@ -2,7 +2,7 @@
 name: p3-identity-stack
 description: Apply P3 Identity Stack to recognize that individuals operate from multiple nested identities simultaneously.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p3-identity-stack","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p3-identity-stack","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # P3 Identity Stack
@@ -94,7 +94,7 @@ const result = applyModel("P3", "Recognize that individuals operate from multipl
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p3-identity-stack"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("P3", "Recognize that individuals operate from multipl
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/p3-identity-stack
+openclaw-registry install hummbl-agent/p3-identity-stack
 ```
 
 ### Usage with Commands

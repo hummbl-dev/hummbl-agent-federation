@@ -2,7 +2,7 @@
 name: p5-empathy-mapping
 description: Apply P5 Empathy Mapping to systematically capture what stakeholders see, think, feel, and do in their context.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p5-empathy-mapping","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p5-empathy-mapping","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # P5 Empathy Mapping
@@ -94,7 +94,7 @@ const result = applyModel("P5", "Systematically capture what stakeholders see, t
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p5-empathy-mapping"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("P5", "Systematically capture what stakeholders see, t
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/p5-empathy-mapping
+openclaw-registry install hummbl-agent/p5-empathy-mapping
 ```
 
 ### Usage with Commands

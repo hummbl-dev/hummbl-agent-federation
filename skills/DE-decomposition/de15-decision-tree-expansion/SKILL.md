@@ -2,7 +2,7 @@
 name: de15-decision-tree-expansion
 description: Apply DE15 Decision Tree Expansion to map choices and their consequences as branching paths.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de15-decision-tree-expansion","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de15-decision-tree-expansion","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # DE15 Decision Tree Expansion
@@ -94,7 +94,7 @@ const result = applyModel("DE15", "Map choices and their consequences as branchi
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de15-decision-tree-expansion"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("DE15", "Map choices and their consequences as branchi
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/de15-decision-tree-expansion
+openclaw-registry install hummbl-agent/de15-decision-tree-expansion
 ```
 
 ### Usage with Commands

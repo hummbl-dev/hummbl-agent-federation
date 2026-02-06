@@ -2,7 +2,7 @@
 name: co6-gestalt-integration
 description: Apply CO6 Gestalt Integration to perceive and leverage whole patterns rather than isolated components.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co6-gestalt-integration","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co6-gestalt-integration","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO6 Gestalt Integration
@@ -94,7 +94,7 @@ const result = applyModel("CO6", "Perceive and leverage whole patterns rather th
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co6-gestalt-integration"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO6", "Perceive and leverage whole patterns rather th
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co6-gestalt-integration
+openclaw-registry install hummbl-agent/co6-gestalt-integration
 ```
 
 ### Usage with Commands

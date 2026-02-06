@@ -2,7 +2,7 @@
 name: co19-multi-modal-integration
 description: Apply CO19 Multi-Modal Integration to synthesize information from different sensory or data modalities.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co19-multi-modal-integration","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co19-multi-modal-integration","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO19 Multi-Modal Integration
@@ -94,7 +94,7 @@ const result = applyModel("CO19", "Synthesize information from different sensory
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co19-multi-modal-integration"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO19", "Synthesize information from different sensory
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co19-multi-modal-integration
+openclaw-registry install hummbl-agent/co19-multi-modal-integration
 ```
 
 ### Usage with Commands

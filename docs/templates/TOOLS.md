@@ -8,7 +8,7 @@ Workspace-specific tool configuration notes for HUMMBL agents.
 
 ## OpenClaw
 
-- Gateway config: configs/moltbot/gateway.json
+- Gateway config: configs/openclaw/gateway.json
 - Workspace root: hummbl-agent
 
 ## Claude Code

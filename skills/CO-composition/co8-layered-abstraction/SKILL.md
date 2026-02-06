@@ -2,7 +2,7 @@
 name: co8-layered-abstraction
 description: Apply CO8 Layered Abstraction to separate concerns into hierarchical levels with clear interfaces between them.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co8-layered-abstraction","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co8-layered-abstraction","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO8 Layered Abstraction
@@ -94,7 +94,7 @@ const result = applyModel("CO8", "Separate concerns into hierarchical levels wit
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co8-layered-abstraction"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO8", "Separate concerns into hierarchical levels wit
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co8-layered-abstraction
+openclaw-registry install hummbl-agent/co8-layered-abstraction
 ```
 
 ### Usage with Commands

@@ -2,7 +2,7 @@
 name: p11-role-perspective-taking
 description: Apply P11 Role Perspective-Taking to temporarily inhabit specific roles to understand constraints and priorities.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p11-role-perspective-taking","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p11-role-perspective-taking","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # P11 Role Perspective-Taking
@@ -94,7 +94,7 @@ const result = applyModel("P11", "Temporarily inhabit specific roles to understa
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p11-role-perspective-taking"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("P11", "Temporarily inhabit specific roles to understa
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/p11-role-perspective-taking
+openclaw-registry install hummbl-agent/p11-role-perspective-taking
 ```
 
 ### Usage with Commands

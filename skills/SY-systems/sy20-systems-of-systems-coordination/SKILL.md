@@ -2,7 +2,7 @@
 name: sy20-systems-of-systems-coordination
 description: Apply SY20 Systems-of-Systems Coordination to manage interactions between independent systems with emergent behaviors.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy20-systems-of-systems-coordination","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy20-systems-of-systems-coordination","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # SY20 Systems-of-Systems Coordination
@@ -94,7 +94,7 @@ const result = applyModel("SY20", "Manage interactions between independent syste
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy20-systems-of-systems-coordination"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("SY20", "Manage interactions between independent syste
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/sy20-systems-of-systems-coordination
+openclaw-registry install hummbl-agent/sy20-systems-of-systems-coordination
 ```
 
 ### Usage with Commands

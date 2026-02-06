@@ -12,8 +12,8 @@ The **hummbl-agent** repository is an ambitious and sophisticated integration wo
 
 The project integrates three key technologies:
 
-1. **Moltbot** - Multi-agent coordination hub and gateway
-2. **Moltbot Registry** - Distribution system for installable skills
+1. **OpenClaw** - Multi-agent coordination hub and gateway
+2. **OpenClaw Registry** - Distribution system for installable skills
 3. **Claude Code / Everything Claude Code** - Development environment with HUMMBL-specific agents and commands
 
 The ultimate goal is to make HUMMBL Base120 the **mental intelligence layer for AI agent coordination**, leveraging governed tooling and audit-first execution.
@@ -171,7 +171,7 @@ Each Base120 skill follows a consistent template:
 name: p1-first-principles-framing
 description: Apply P1 First Principles Framing...
 version: 1.0.0
-metadata: {"moltbot":{"nix":{...}}}
+metadata: {"openclaw":{"nix":{...}}}
 ---
 
 # P1 First Principles Framing
@@ -409,13 +409,13 @@ The repository includes comprehensive documentation:
 
 The system is designed to work across multiple platforms:
 
-1. **Moltbot Gateway**
+1. **OpenClaw Gateway**
    - Multi-agent coordination hub
    - Voice-accessible mental models
    - Cross-platform communication
-   - Configuration: `configs/moltbot/`
+   - Configuration: `configs/openclaw/`
 
-2. **Moltbot Registry**
+2. **OpenClaw Registry**
    - Publish Base120 mental models as installable skills
    - Version-controlled evolution
    - Nix-based installation
@@ -520,7 +520,7 @@ These scripts ensure:
 Skills are:
 
 - Version-controlled with SHA256 hashes
-- Installable via Moltbot registry
+- Installable via OpenClaw registry
 - Distributed as Nix plugins
 - Self-documenting with metadata
 - Composable with other skills
@@ -652,7 +652,7 @@ Tests are minimal and focused:
 
 ## 14. Configuration Management
 
-### Moltbot Configuration (`configs/moltbot/`)
+### OpenClaw Configuration (`configs/openclaw/`)
 
 Gateway configuration for multi-agent coordination:
 

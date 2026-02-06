@@ -2,7 +2,7 @@
 name: de18-scenario-decomposition
 description: Apply DE18 Scenario Decomposition to partition future possibilities into discrete, mutually exclusive scenarios.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de18-scenario-decomposition","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de18-scenario-decomposition","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # DE18 Scenario Decomposition
@@ -94,7 +94,7 @@ const result = applyModel("DE18", "Partition future possibilities into discrete,
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de18-scenario-decomposition"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("DE18", "Partition future possibilities into discrete,
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/de18-scenario-decomposition
+openclaw-registry install hummbl-agent/de18-scenario-decomposition
 ```
 
 ### Usage with Commands

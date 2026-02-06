@@ -2,7 +2,7 @@
 name: p14-reference-class-framing
 description: Apply P14 Reference Class Framing to select comparable situations to inform judgment and avoid uniqueness bias.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p14-reference-class-framing","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p14-reference-class-framing","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # P14 Reference Class Framing
@@ -94,7 +94,7 @@ const result = applyModel("P14", "Select comparable situations to inform judgmen
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p14-reference-class-framing"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("P14", "Select comparable situations to inform judgmen
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/p14-reference-class-framing
+openclaw-registry install hummbl-agent/p14-reference-class-framing
 ```
 
 ### Usage with Commands

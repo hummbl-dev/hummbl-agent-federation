@@ -2,7 +2,7 @@
 name: in18-kill-criteria-and-stop-rules
 description: Apply IN18 Kill-Criteria & Stop Rules to define conditions that trigger project termination before launch.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in18-kill-criteria-and-stop-rules","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in18-kill-criteria-and-stop-rules","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # IN18 Kill-Criteria & Stop Rules
@@ -94,7 +94,7 @@ const result = applyModel("IN18", "Define conditions that trigger project termin
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in18-kill-criteria-and-stop-rules"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("IN18", "Define conditions that trigger project termin
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/in18-kill-criteria-and-stop-rules
+openclaw-registry install hummbl-agent/in18-kill-criteria-and-stop-rules
 ```
 
 ### Usage with Commands

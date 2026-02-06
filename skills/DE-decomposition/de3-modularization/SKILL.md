@@ -2,7 +2,7 @@
 name: de3-modularization
 description: Apply DE3 Modularization to partition system into self-contained units with minimal interdependencies.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de3-modularization","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de3-modularization","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # DE3 Modularization
@@ -94,7 +94,7 @@ const result = applyModel("DE3", "Partition system into self-contained units wit
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de3-modularization"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("DE3", "Partition system into self-contained units wit
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/de3-modularization
+openclaw-registry install hummbl-agent/de3-modularization
 ```
 
 ### Usage with Commands

@@ -2,7 +2,7 @@
 name: re7-self-referential-logic
 description: Apply RE7 Self-Referential Logic to create systems that monitor, measure, or modify themselves.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re7-self-referential-logic","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re7-self-referential-logic","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # RE7 Self-Referential Logic
@@ -94,7 +94,7 @@ const result = applyModel("RE7", "Create systems that monitor, measure, or modif
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re7-self-referential-logic"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("RE7", "Create systems that monitor, measure, or modif
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/re7-self-referential-logic
+openclaw-registry install hummbl-agent/re7-self-referential-logic
 ```
 
 ### Usage with Commands

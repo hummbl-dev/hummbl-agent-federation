@@ -15,7 +15,7 @@
 
 To enable API fees (REQUIRES EXPLICIT OWNER APPROVAL):
 ```bash
-export MOLTBOT_ALLOW_API_FEES=1
+export OPENCLAW_ALLOW_API_FEES=1
 ```
 
 ## Allowed Access Methods
@@ -64,7 +64,7 @@ ollama run llama3.2
 
 ### LLM Configs
 
-Both `configs/moltbot/llm.anthropic.json` and `configs/moltbot/llm.openai.json`:
+Both `configs/openclaw/llm.anthropic.json` and `configs/openclaw/llm.openai.json`:
 - `enabled: false` (disabled by default)
 - `dry_run: true` (dry-run even if enabled)
 - `allowed_models: []` (empty - no models enabled)
@@ -75,7 +75,7 @@ Both `configs/moltbot/llm.anthropic.json` and `configs/moltbot/llm.openai.json`:
 
 `configs/secrets-policy.json`:
 - API keys moved to `restrictedSecrets`
-- Requires `MOLTBOT_ALLOW_API_FEES=1` to use
+- Requires `OPENCLAW_ALLOW_API_FEES=1` to use
 
 ## Enabling API Access (Requires Owner Approval)
 
@@ -84,11 +84,11 @@ If you absolutely need direct API access (incurs costs):
 1. Get explicit owner approval
 2. Set environment variable:
    ```bash
-   export MOLTBOT_ALLOW_API_FEES=1
+   export OPENCLAW_ALLOW_API_FEES=1
    ```
 3. Create local override (gitignored):
    ```bash
-   # configs/moltbot/llm.anthropic.local.json
+   # configs/openclaw/llm.anthropic.local.json
    {
      "enabled": true,
      "dry_run": false,
@@ -97,11 +97,11 @@ If you absolutely need direct API access (incurs costs):
    ```
 4. Set API key:
    ```bash
-   export MOLTBOT_ANTHROPIC_API_KEY=...
+   export OPENCLAW_ANTHROPIC_API_KEY=...
    ```
 5. Enable live calls:
    ```bash
-   export MOLTBOT_LIVE_LLM_CALLS=1
+   export OPENCLAW_LIVE_LLM_CALLS=1
    ```
 
 ## Failure Codes
@@ -116,7 +116,7 @@ If you absolutely need direct API access (incurs costs):
 
 ## Routing Policy
 
-`configs/moltbot/llm-routing-policy.json`:
+`configs/openclaw/llm-routing-policy.json`:
 - Prefers: local → subscription → api
 - API vendor disabled by default
 - Fallback order: ollama → subscription.anthropic → subscription.openai

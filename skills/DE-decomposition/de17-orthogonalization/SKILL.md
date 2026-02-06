@@ -2,7 +2,7 @@
 name: de17-orthogonalization
 description: Apply DE17 Orthogonalization to ensure factors vary independently without correlation or interdependence.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de17-orthogonalization","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de17-orthogonalization","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # DE17 Orthogonalization
@@ -94,7 +94,7 @@ const result = applyModel("DE17", "Ensure factors vary independently without cor
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de17-orthogonalization"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("DE17", "Ensure factors vary independently without cor
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/de17-orthogonalization
+openclaw-registry install hummbl-agent/de17-orthogonalization
 ```
 
 ### Usage with Commands

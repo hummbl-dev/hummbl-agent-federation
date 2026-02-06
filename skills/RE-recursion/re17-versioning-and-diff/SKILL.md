@@ -2,7 +2,7 @@
 name: re17-versioning-and-diff
 description: Apply RE17 Versioning & Diff to track changes over time and compare versions to understand evolution.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re17-versioning-and-diff","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re17-versioning-and-diff","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # RE17 Versioning & Diff
@@ -94,7 +94,7 @@ const result = applyModel("RE17", "Track changes over time and compare versions 
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re17-versioning-and-diff"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("RE17", "Track changes over time and compare versions 
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/re17-versioning-and-diff
+openclaw-registry install hummbl-agent/re17-versioning-and-diff
 ```
 
 ### Usage with Commands

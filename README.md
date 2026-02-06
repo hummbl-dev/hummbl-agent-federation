@@ -36,7 +36,7 @@ hummbl-agent/
 │   ├── sitrep.md                              # Generate SITREPs
 │   └── verify-hummbl.md                        # Verify HUMMBL compliance
 ├── configs/                                   # Configuration files
-│   ├── moltbot/                              # OpenClaw gateway/workspace configs
+│   ├── openclaw/                              # OpenClaw gateway/workspace configs
 │   ├── claude-code/                           # Claude Code settings template
 │   ├── codex/                                 # Codex runner guidance
 │   ├── grok/                                  # Grok runner guidance

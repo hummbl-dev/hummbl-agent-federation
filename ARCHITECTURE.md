@@ -101,13 +101,13 @@ HUMMBL Agent is a governed multi-runner substrate for orchestrating AI agents ac
 
 **Enforces:**
 
-- Dry-run mode by default (requires `MOLTBOT_LIVE_LLM_CALLS=1`)
+- Dry-run mode by default (requires `OPENCLAW_LIVE_LLM_CALLS=1`)
 - Model allowlists
 - Prompt length limits
 - API key presence checks
 - Tuple provenance (sha256 gate)
 
-**Configuration:** `configs/moltbot/llm.{anthropic,openai}.local.json` (gitignored)
+**Configuration:** `configs/openclaw/llm.{anthropic,openai}.local.json` (gitignored)
 
 #### Communication Adapters
 
@@ -120,10 +120,10 @@ HUMMBL Agent is a governed multi-runner substrate for orchestrating AI agents ac
 
 - Stub-first (no live networking in Phase 1)
 - Provider config validation
-- Live guard (requires `MOLTBOT_LIVE_COMM=1`)
+- Live guard (requires `OPENCLAW_LIVE_COMM=1`)
 - Message content validation
 
-**Configuration:** `configs/moltbot/comm.{slack,discord}.local.json` (gitignored)
+**Configuration:** `configs/openclaw/comm.{slack,discord}.local.json` (gitignored)
 
 ### Runners
 

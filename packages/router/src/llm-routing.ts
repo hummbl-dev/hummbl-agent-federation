@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 import type { SkillDefinition } from "../../skills/registry/src/types";
 import type { TupleV1 } from "../../kernel/src/tuples/types";
 
-const POLICY_PATH = resolve(process.cwd(), "configs/moltbot/llm-routing-policy.json");
+const POLICY_PATH = resolve(process.cwd(), "configs/openclaw/llm-routing-policy.json");
 
 export type LlmRoutingPolicy = {
   version: string;

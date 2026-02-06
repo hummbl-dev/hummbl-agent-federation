@@ -2,7 +2,7 @@
 name: sy4-requisite-variety
 description: Apply SY4 Requisite Variety to match control system's complexity to system being controlled.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy4-requisite-variety","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy4-requisite-variety","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # SY4 Requisite Variety
@@ -94,7 +94,7 @@ const result = applyModel("SY4", "Match control system's complexity to system be
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy4-requisite-variety"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("SY4", "Match control system's complexity to system be
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/sy4-requisite-variety
+openclaw-registry install hummbl-agent/sy4-requisite-variety
 ```
 
 ### Usage with Commands

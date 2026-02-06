@@ -10,14 +10,14 @@ export type UpstreamMapping = {
 
 export const UPSTREAM_MAPPINGS: UpstreamMapping[] = [
   {
-    upstream: "moltbot",
+    upstream: "openclaw",
     provides: ["gateway", "multi-agent routing", "sessions"],
     kernelConcepts: ["Runner", "Tool", "RunState"],
     usagePolicy: "wrap, do not edit",
     knownRisks: ["API drift", "config divergence"],
   },
   {
-    upstream: "moltbot-registry",
+    upstream: "openclaw-registry",
     provides: ["skills registry", "distribution"],
     kernelConcepts: ["Tool", "Memory"],
     usagePolicy: "wrap, do not edit",

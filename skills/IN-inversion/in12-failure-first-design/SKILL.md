@@ -2,7 +2,7 @@
 name: in12-failure-first-design
 description: Apply IN12 Failure First Design to begin planning by identifying all possible failure modes and designing to prevent them.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in12-failure-first-design","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in12-failure-first-design","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # IN12 Failure First Design
@@ -94,7 +94,7 @@ const result = applyModel("IN12", "Begin planning by identifying all possible fa
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in12-failure-first-design"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("IN12", "Begin planning by identifying all possible fa
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/in12-failure-first-design
+openclaw-registry install hummbl-agent/in12-failure-first-design
 ```
 
 ### Usage with Commands

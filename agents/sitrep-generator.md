@@ -163,7 +163,7 @@ interface Recommendations {
 
 ### **Distribution Channels**
 
-- **Moltbot channels**: WhatsApp, Telegram, Slack, Discord
+- **OpenClaw channels**: WhatsApp, Telegram, Slack, Discord
 - **Agent coordination**: Direct agent handoffs
 - **Documentation**: Workspace and knowledge base
 - **Stakeholder updates**: Executive summaries
@@ -197,7 +197,7 @@ SITREP-1: HUMMBL Integration - Foundation | UNCLASSIFIED | 20260126-1500Z | HUMM
    Completed: Agent architecture, command system, P1 skill
    In Progress: Continuous learning setup, SITREP automation
    Blocked: None identified
-   Dependencies: Moltbot registry skill publishing pending
+   Dependencies: OpenClaw registry skill publishing pending
 
 4. ASSESSMENT
    // Using IN2 (Inversion) - Risk analysis
@@ -216,7 +216,7 @@ SITREP-1: HUMMBL Integration - Foundation | UNCLASSIFIED | 20260126-1500Z | HUMM
 5. RECOMMENDATIONS
    // Using CO5 (Composition) - Integrative planning
    Immediate:
-   - Publish P1 skill to Moltbot registry for community testing
+   - Publish P1 skill to OpenClaw registry for community testing
    - Complete DE3 and SY8 skills for full Base120 coverage
    
    Short Term:

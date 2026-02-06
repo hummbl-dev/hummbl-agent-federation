@@ -11,7 +11,7 @@ const BRANDS = [
   "OpenClaw",
   "openclaw",
   "MoltBot",
-  "moltbot",
+  "openclaw",
 ];
 
 const DEPENDENCY_PHRASES = [

@@ -2,7 +2,7 @@
 name: co12-modular-interoperability
 description: Apply CO12 Modular Interoperability to ensure independent components work together through standardized connections.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co12-modular-interoperability","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co12-modular-interoperability","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO12 Modular Interoperability
@@ -94,7 +94,7 @@ const result = applyModel("CO12", "Ensure independent components work together t
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co12-modular-interoperability"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO12", "Ensure independent components work together t
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co12-modular-interoperability
+openclaw-registry install hummbl-agent/co12-modular-interoperability
 ```
 
 ### Usage with Commands

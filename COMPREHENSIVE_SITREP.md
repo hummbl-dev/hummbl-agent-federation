@@ -59,7 +59,7 @@ The repository has undergone rapid initial development with foundations establis
   - Gateway and routing configuration patterns borrowed via vendor pins
   - Session and coordination idioms adapted for HUMMBL use cases
   - NO runtime code directly copied; all integration through adapter layers
-  - Pinned as vendor dependency: `vendor/moltbot`
+  - Pinned as vendor dependency: `vendor/openclaw`
 - **What We Use:** Configuration patterns, coordination idioms, multi-agent orchestration concepts
 - **What We Don't Use:** Runtime code or internal modules
 
@@ -72,7 +72,7 @@ The repository has undergone rapid initial development with foundations establis
   - Registry conventions for skills and metadata adopted
   - Adapter layer converts kernel types to registry formats
   - NO registry implementation code directly used
-  - Pinned as vendor dependency: `vendor/moltbot-registry`
+  - Pinned as vendor dependency: `vendor/openclaw-registry`
 - **What We Use:** Registry metadata conventions, skill distribution patterns
 - **What We Don't Use:** Registry implementation or distribution code
 
@@ -306,7 +306,7 @@ The repository shows **2 commits** in current branch state, indicating either:
 
 **Runner Configurations:**
 
-1. `configs/moltbot/` - Moltbot gateway/workspace configs
+1. `configs/openclaw/` - OpenClaw gateway/workspace configs
 2. `configs/claude-code/` - Claude Code settings template
 3. `configs/codex/` - Codex runner guidance
 4. `configs/grok/` - Grok runner guidance
@@ -592,7 +592,7 @@ From `_state/CURRENT_STATE.md`:
    - Document experiment outcomes and learnings
 
 3. **Community Engagement**
-   - Publish first skills to Moltbot registry
+   - Publish first skills to OpenClaw registry
    - Gather community feedback on mental models
    - Iterate based on real-world usage
 
@@ -670,7 +670,7 @@ From `_state/CURRENT_STATE.md`:
 - Agent markdown files: 14
 - Command markdown files: 19
 - Documentation markdown files: 25+
-- Configuration directories: 5 (moltbot, claude-code, codex, grok, learning)
+- Configuration directories: 5 (openclaw, claude-code, codex, grok, learning)
 - Package modules: 6 (kernel, skills/registry, router, runners, adapters, vendor-bridge)
 
 ### Transformation Domain Coverage
@@ -688,8 +688,8 @@ Each domain contains 20 mental models:
 
 ### Vendor Dependencies
 
-- **moltbot** (formerly ClawdBot, now OpenClaw): Gateway patterns
-- **moltbot-registry** (ClawdHub): Registry conventions
+- **openclaw** (formerly ClawdBot, now OpenClaw): Gateway patterns
+- **openclaw-registry** (ClawdHub): Registry conventions
 - **everything-claude-code**: Agent/command conventions
 
 All pinned in `vendor/` with adapter-based integration.

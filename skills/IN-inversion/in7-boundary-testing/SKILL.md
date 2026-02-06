@@ -2,7 +2,7 @@
 name: in7-boundary-testing
 description: Apply IN7 Boundary Testing to explore extreme conditions to find system limits and breaking points.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in7-boundary-testing","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in7-boundary-testing","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # IN7 Boundary Testing
@@ -94,7 +94,7 @@ const result = applyModel("IN7", "Explore extreme conditions to find system limi
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in7-boundary-testing"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("IN7", "Explore extreme conditions to find system limi
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/in7-boundary-testing
+openclaw-registry install hummbl-agent/in7-boundary-testing
 ```
 
 ### Usage with Commands

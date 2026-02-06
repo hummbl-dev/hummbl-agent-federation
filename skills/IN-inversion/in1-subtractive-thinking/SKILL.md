@@ -2,7 +2,7 @@
 name: in1-subtractive-thinking
 description: Apply IN1 Subtractive Thinking to improve systems by removing elements rather than adding complexity.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in1-subtractive-thinking","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in1-subtractive-thinking","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # IN1 Subtractive Thinking
@@ -94,7 +94,7 @@ const result = applyModel("IN1", "Improve systems by removing elements rather th
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in1-subtractive-thinking"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("IN1", "Improve systems by removing elements rather th
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/in1-subtractive-thinking
+openclaw-registry install hummbl-agent/in1-subtractive-thinking
 ```
 
 ### Usage with Commands

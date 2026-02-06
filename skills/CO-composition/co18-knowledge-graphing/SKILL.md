@@ -2,7 +2,7 @@
 name: co18-knowledge-graphing
 description: Apply CO18 Knowledge Graphing to represent information as interconnected entities and relationships.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co18-knowledge-graphing","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co18-knowledge-graphing","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO18 Knowledge Graphing
@@ -94,7 +94,7 @@ const result = applyModel("CO18", "Represent information as interconnected entit
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co18-knowledge-graphing"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO18", "Represent information as interconnected entit
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co18-knowledge-graphing
+openclaw-registry install hummbl-agent/co18-knowledge-graphing
 ```
 
 ### Usage with Commands

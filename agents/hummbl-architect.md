@@ -96,7 +96,7 @@ const backwardSteps = reverseEngineer(desiredState);
 ```typescript
 // Using CO5 (Composition) - Integrate multi-agent coordination
 const hummblIntegration = compose([
-  moltbotGateway,
+  openclawGateway,
   claudeCodeAgents,
   base120Skills,
   continuousLearning
@@ -223,7 +223,7 @@ When approaching any problem:
 
 // Using P1 (First Principles Framing) - Reduce the integration challenge to foundations
 const integrationFrame = {
-  technical: "Moltbot + Moltbot registry + Claude Code integration",
+  technical: "OpenClaw + OpenClaw registry + Claude Code integration",
   business: "Mental model distribution and coordination", 
   user: "Seamless multi-agent experience",
   system: "Scalable pattern application"

@@ -2,7 +2,7 @@
 name: p8-narrative-framing
 description: Apply P8 Narrative Framing to structure information as causal stories with conflict, choice, and consequence.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p8-narrative-framing","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p8-narrative-framing","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # P8 Narrative Framing
@@ -94,7 +94,7 @@ const result = applyModel("P8", "Structure information as causal stories with co
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p8-narrative-framing"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("P8", "Structure information as causal stories with co
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/p8-narrative-framing
+openclaw-registry install hummbl-agent/p8-narrative-framing
 ```
 
 ### Usage with Commands

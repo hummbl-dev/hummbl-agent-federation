@@ -2,7 +2,7 @@
 name: in15-constraint-reversal
 description: Apply IN15 Constraint Reversal to temporarily remove assumed constraints to explore alternative solution space.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in15-constraint-reversal","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in15-constraint-reversal","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # IN15 Constraint Reversal
@@ -94,7 +94,7 @@ const result = applyModel("IN15", "Temporarily remove assumed constraints to exp
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in15-constraint-reversal"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("IN15", "Temporarily remove assumed constraints to exp
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/in15-constraint-reversal
+openclaw-registry install hummbl-agent/in15-constraint-reversal
 ```
 
 ### Usage with Commands

@@ -2,7 +2,7 @@
 name: sy7-path-dependence
 description: Apply SY7 Path Dependence to acknowledge how early decisions constrain future options through accumulated consequences.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy7-path-dependence","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy7-path-dependence","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # SY7 Path Dependence
@@ -94,7 +94,7 @@ const result = applyModel("SY7", "Acknowledge how early decisions constrain futu
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy7-path-dependence"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("SY7", "Acknowledge how early decisions constrain futu
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/sy7-path-dependence
+openclaw-registry install hummbl-agent/sy7-path-dependence
 ```
 
 ### Usage with Commands

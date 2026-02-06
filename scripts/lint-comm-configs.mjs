@@ -12,6 +12,6 @@ function guard(path) {
   if (!Array.isArray(cfg.allowed_channel_ids)) fail(`${path}: allowed_channel_ids must be an array`);
 }
 
-guard("configs/moltbot/communication.slack.json");
-guard("configs/moltbot/communication.discord.json");
+guard("configs/openclaw/communication.slack.json");
+guard("configs/openclaw/communication.discord.json");
 console.log("[OK] committed communication configs remain disabled and dry-run");

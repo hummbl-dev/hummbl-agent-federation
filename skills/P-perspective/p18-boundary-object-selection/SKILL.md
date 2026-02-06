@@ -2,7 +2,7 @@
 name: p18-boundary-object-selection
 description: Apply P18 Boundary Object Selection to choose representations that bridge multiple perspectives while remaining meaningful.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p18-boundary-object-selection","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p18-boundary-object-selection","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # P18 Boundary Object Selection
@@ -94,7 +94,7 @@ const result = applyModel("P18", "Choose representations that bridge multiple pe
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p18-boundary-object-selection"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("P18", "Choose representations that bridge multiple pe
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/p18-boundary-object-selection
+openclaw-registry install hummbl-agent/p18-boundary-object-selection
 ```
 
 ### Usage with Commands

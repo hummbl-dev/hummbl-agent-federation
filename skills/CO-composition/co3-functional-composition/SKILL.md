@@ -2,7 +2,7 @@
 name: co3-functional-composition
 description: Apply CO3 Functional Composition to chain pure operations where output of one becomes input of next.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co3-functional-composition","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co3-functional-composition","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO3 Functional Composition
@@ -94,7 +94,7 @@ const result = applyModel("CO3", "Chain pure operations where output of one beco
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co3-functional-composition"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO3", "Chain pure operations where output of one beco
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co3-functional-composition
+openclaw-registry install hummbl-agent/co3-functional-composition
 ```
 
 ### Usage with Commands

@@ -2,7 +2,7 @@
 name: p1-first-principles-framing
 description: Apply P1 First Principles Framing to reduce complex problems to foundational truths that cannot be further simplified.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p1-first-principles-framing","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p1-first-principles-framing","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # P1 First Principles Framing
@@ -94,7 +94,7 @@ const result = applyModel("P1", "Reduce complex problems to foundational truths 
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p1-first-principles-framing"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("P1", "Reduce complex problems to foundational truths 
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/p1-first-principles-framing
+openclaw-registry install hummbl-agent/p1-first-principles-framing
 ```
 
 ### Usage with Commands

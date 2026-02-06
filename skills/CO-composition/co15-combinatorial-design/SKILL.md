@@ -2,7 +2,7 @@
 name: co15-combinatorial-design
 description: Apply CO15 Combinatorial Design to systematically explore option combinations to find optimal configurations.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co15-combinatorial-design","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co15-combinatorial-design","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO15 Combinatorial Design
@@ -94,7 +94,7 @@ const result = applyModel("CO15", "Systematically explore option combinations to
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co15-combinatorial-design"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO15", "Systematically explore option combinations to
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co15-combinatorial-design
+openclaw-registry install hummbl-agent/co15-combinatorial-design
 ```
 
 ### Usage with Commands

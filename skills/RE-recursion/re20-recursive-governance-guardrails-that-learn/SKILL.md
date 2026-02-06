@@ -2,7 +2,7 @@
 name: re20-recursive-governance-guardrails-that-learn
 description: Apply RE20 Recursive Governance (Guardrails that Learn) to establish rules that adapt based on their own effectiveness.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re20-recursive-governance-guardrails-that-learn","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re20-recursive-governance-guardrails-that-learn","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # RE20 Recursive Governance (Guardrails that Learn)
@@ -94,7 +94,7 @@ const result = applyModel("RE20", "Establish rules that adapt based on their own
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re20-recursive-governance-guardrails-that-learn"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("RE20", "Establish rules that adapt based on their own
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/re20-recursive-governance-guardrails-that-learn
+openclaw-registry install hummbl-agent/re20-recursive-governance-guardrails-that-learn
 ```
 
 ### Usage with Commands

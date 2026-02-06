@@ -2,7 +2,7 @@
 name: co13-cross-domain-analogy
 description: Apply CO13 Cross-Domain Analogy to transfer solution patterns from one domain to solve problems in another.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co13-cross-domain-analogy","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co13-cross-domain-analogy","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO13 Cross-Domain Analogy
@@ -94,7 +94,7 @@ const result = applyModel("CO13", "Transfer solution patterns from one domain to
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co13-cross-domain-analogy"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO13", "Transfer solution patterns from one domain to
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co13-cross-domain-analogy
+openclaw-registry install hummbl-agent/co13-cross-domain-analogy
 ```
 
 ### Usage with Commands

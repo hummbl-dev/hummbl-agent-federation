@@ -23,5 +23,5 @@ TupleV1 requirements:
 
 - Repo config disabled + dry-run with empty allowlist
 - `.local` overrides enable per-install control
-- Live sends require `MOLTBOT_LIVE_LLM_CALLS=1`, env token, and allowlisted model
+- Live sends require `OPENCLAW_LIVE_LLM_CALLS=1`, env token, and allowlisted model
 - Prompt text never logged

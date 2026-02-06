@@ -2,7 +2,7 @@
 name: co1-synergy-principle
 description: Apply CO1 Synergy Principle to design combinations where integrated value exceeds sum of parts.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co1-synergy-principle","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co1-synergy-principle","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO1 Synergy Principle
@@ -94,7 +94,7 @@ const result = applyModel("CO1", "Design combinations where integrated value exc
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co1-synergy-principle"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO1", "Design combinations where integrated value exc
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co1-synergy-principle
+openclaw-registry install hummbl-agent/co1-synergy-principle
 ```
 
 ### Usage with Commands

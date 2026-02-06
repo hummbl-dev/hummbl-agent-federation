@@ -2,7 +2,7 @@
 name: de7-pareto-decomposition-8020
 description: Apply DE7 Pareto Decomposition (80/20) to identify vital few drivers producing most impact versus trivial many.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de7-pareto-decomposition-8020","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de7-pareto-decomposition-8020","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # DE7 Pareto Decomposition (80/20)
@@ -94,7 +94,7 @@ const result = applyModel("DE7", "Identify vital few drivers producing most impa
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de7-pareto-decomposition-8020"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("DE7", "Identify vital few drivers producing most impa
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/de7-pareto-decomposition-8020
+openclaw-registry install hummbl-agent/de7-pareto-decomposition-8020
 ```
 
 ### Usage with Commands

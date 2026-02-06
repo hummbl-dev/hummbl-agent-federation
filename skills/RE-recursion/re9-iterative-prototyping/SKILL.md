@@ -2,7 +2,7 @@
 name: re9-iterative-prototyping
 description: Apply RE9 Iterative Prototyping to cycle rapidly through build-test-learn loops with increasing fidelity.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re9-iterative-prototyping","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re9-iterative-prototyping","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # RE9 Iterative Prototyping
@@ -94,7 +94,7 @@ const result = applyModel("RE9", "Cycle rapidly through build-test-learn loops w
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re9-iterative-prototyping"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("RE9", "Cycle rapidly through build-test-learn loops w
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/re9-iterative-prototyping
+openclaw-registry install hummbl-agent/re9-iterative-prototyping
 ```
 
 ### Usage with Commands

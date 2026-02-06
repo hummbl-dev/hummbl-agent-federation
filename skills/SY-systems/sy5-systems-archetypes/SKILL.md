@@ -2,7 +2,7 @@
 name: sy5-systems-archetypes
 description: Apply SY5 Systems Archetypes to recognize recurring dynamic patterns across different domains.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy5-systems-archetypes","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy5-systems-archetypes","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # SY5 Systems Archetypes
@@ -94,7 +94,7 @@ const result = applyModel("SY5", "Recognize recurring dynamic patterns across di
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy5-systems-archetypes"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("SY5", "Recognize recurring dynamic patterns across di
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/sy5-systems-archetypes
+openclaw-registry install hummbl-agent/sy5-systems-archetypes
 ```
 
 ### Usage with Commands

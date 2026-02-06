@@ -2,7 +2,7 @@
 name: sy12-protocolinterface-standards
 description: Apply SY12 Protocol/Interface Standards to specify rules for interaction enabling coordination without central control.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy12-protocolinterface-standards","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy12-protocolinterface-standards","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # SY12 Protocol/Interface Standards
@@ -94,7 +94,7 @@ const result = applyModel("SY12", "Specify rules for interaction enabling coordi
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy12-protocolinterface-standards"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("SY12", "Specify rules for interaction enabling coordi
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/sy12-protocolinterface-standards
+openclaw-registry install hummbl-agent/sy12-protocolinterface-standards
 ```
 
 ### Usage with Commands

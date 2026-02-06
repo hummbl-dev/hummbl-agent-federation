@@ -2,7 +2,7 @@
 name: co14-platformization
 description: Apply CO14 Platformization to extract common capabilities into reusable infrastructure serving multiple use cases.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co14-platformization","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co14-platformization","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO14 Platformization
@@ -94,7 +94,7 @@ const result = applyModel("CO14", "Extract common capabilities into reusable inf
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co14-platformization"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO14", "Extract common capabilities into reusable inf
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co14-platformization
+openclaw-registry install hummbl-agent/co14-platformization
 ```
 
 ### Usage with Commands

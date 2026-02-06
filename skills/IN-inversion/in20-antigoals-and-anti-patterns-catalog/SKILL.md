@@ -2,7 +2,7 @@
 name: in20-antigoals-and-anti-patterns-catalog
 description: Apply IN20 Antigoals & Anti-Patterns Catalog to document failure modes to avoid rather than success patterns to emulate.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in20-antigoals-and-anti-patterns-catalog","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in20-antigoals-and-anti-patterns-catalog","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # IN20 Antigoals & Anti-Patterns Catalog
@@ -94,7 +94,7 @@ const result = applyModel("IN20", "Document failure modes to avoid rather than s
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/IN-inversion/in20-antigoals-and-anti-patterns-catalog"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("IN20", "Document failure modes to avoid rather than s
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/in20-antigoals-and-anti-patterns-catalog
+openclaw-registry install hummbl-agent/in20-antigoals-and-anti-patterns-catalog
 ```
 
 ### Usage with Commands

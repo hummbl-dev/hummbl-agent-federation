@@ -1,10 +1,10 @@
-export type VendorName = "moltbot" | "moltbot-registry" | "everything-claude-code";
+export type VendorName = "openclaw" | "openclaw-registry" | "everything-claude-code";
 
 export const VENDOR_ROOT = "vendor" as const;
 
 export const VENDOR_PATHS: Record<VendorName, string> = {
-  moltbot: "vendor/moltbot",
-  moltbot-registry: "vendor/moltbot-registry",
+  openclaw: "vendor/openclaw",
+  "openclaw-registry": "vendor/openclaw-registry",
   "everything-claude-code": "vendor/everything-claude-code",
 };
 

@@ -25,21 +25,21 @@ hummbl-agent/
 mkdir -p hummbl-agent/{skills/{generated,base120,custom},workspace,sessions,config}
 
 # Copy HUMMBL configuration
-cp configs/moltbot/gateway.json ~/.moltbot/moltbot.json
+cp configs/openclaw/gateway.json ~/.openclaw/openclaw.json
 
 # Initialize workspace
-moltbot workspace init hummbl-agent --template mental-models
+openclaw workspace init hummbl-agent --template mental-models
 ```
 
 ### **Install Base120 Skills**
 
 ```bash
 # Install P1 First Principles Framing
-moltbot-registry install hummbl-agent/p1-first-principles-framing
+openclaw-registry install hummbl-agent/p1-first-principles-framing
 
 # Install additional Base120 skills as they're created
-moltbot-registry install hummbl-agent/de3-decomposition
-moltbot-registry install hummbl-agent/sy8-systems-thinking
+openclaw-registry install hummbl-agent/de3-decomposition
+openclaw-registry install hummbl-agent/sy8-systems-thinking
 ```
 
 ### **Configure Claude Code Integration**
@@ -67,20 +67,20 @@ cp configs/claude-code/settings.json ~/.claude/settings.json
 
 ```bash
 # Start with HUMMBL configuration
-moltbot gateway --config ~/.moltbot/moltbot.json --port 18789
+openclaw gateway --config ~/.openclaw/openclaw.json --port 18789
 
 # Or use the workspace command
-moltbot workspace start hummbl-agent
+openclaw workspace start hummbl-agent
 ```
 
 ### **Test Integration**
 
 ```bash
 # Test mental model application
-moltbot agent --message "Apply P1 perspective framing to our current integration challenge"
+openclaw agent --message "Apply P1 perspective framing to our current integration challenge"
 
 # Test agent coordination
-moltbot agent --session hummbl-sitrep --message "Generate SITREP for integration progress"
+openclaw agent --session hummbl-sitrep --message "Generate SITREP for integration progress"
 ```
 
 ## Multi-Agent Coordination
@@ -150,13 +150,13 @@ interface HUMMBLCoordination {
 
 ```bash
 # Verify HUMMBL compliance
-moltbot doctor --hummbl
+openclaw doctor --hummbl
 
 # Check mental model application
-moltbot agent --message "Review recent work for Base120 compliance"
+openclaw agent --message "Review recent work for Base120 compliance"
 
 # Generate quality report
-moltbot workspace report hummbl-agent --format markdown
+openclaw workspace report hummbl-agent --format markdown
 ```
 
 ## Troubleshooting
@@ -171,13 +171,13 @@ moltbot workspace report hummbl-agent --format markdown
 
 ```bash
 # Check gateway status
-moltbot gateway status
+openclaw gateway status
 
 # Test skill installation
-moltbot-registry test hummbl-agent/p1-first-principles-framing
+openclaw-registry test hummbl-agent/p1-first-principles-framing
 
 # Verify agent routing
-moltbot agent --test-routing "mental.model"
+openclaw agent --test-routing "mental.model"
 ```
 
 ## Next Steps

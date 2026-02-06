@@ -2,8 +2,8 @@
 
 ## Defaults (tracked in repo)
 
-- `configs/moltbot/communication.slack.json`
-- `configs/moltbot/communication.discord.json`
+- `configs/openclaw/communication.slack.json`
+- `configs/openclaw/communication.discord.json`
 
 Both files are committed with:
 
@@ -18,8 +18,8 @@ This guarantees that cloning the repo never sends real messages.
 
 Create `.local` overrides to enable skills on your machine:
 
-- `configs/moltbot/communication.slack.local.json`
-- `configs/moltbot/communication.discord.local.json`
+- `configs/openclaw/communication.slack.local.json`
+- `configs/openclaw/communication.discord.local.json`
 
 Example:
 
@@ -36,11 +36,11 @@ These files are git-ignored and merged over the tracked config at runtime.
 
 ## Required environment variables for live sends
 
-- `MOLTBOT_LIVE_SEND=1` (global live-send interlock)
-- `MOLTBOT_SLACK_BOT_TOKEN=...`
-- `MOLTBOT_DISCORD_BOT_TOKEN=...`
+- `OPENCLAW_LIVE_SEND=1` (global live-send interlock)
+- `OPENCLAW_SLACK_BOT_TOKEN=...`
+- `OPENCLAW_DISCORD_BOT_TOKEN=...`
 
-If `MOLTBOT_LIVE_SEND` is anything other than `"1"`, adapters return `live_guard_disabled` even when configs request live mode.
+If `OPENCLAW_LIVE_SEND` is anything other than `"1"`, adapters return `live_guard_disabled` even when configs request live mode.
 
 ## Recommended rollout procedure
 
@@ -49,8 +49,8 @@ If `MOLTBOT_LIVE_SEND` is anything other than `"1"`, adapters return `live_guard
    - Verify tuple hashes + audit logs without hitting providers.
 
 2. **Live guard prep**  
-   - Export bot tokens (`MOLTBOT_SLACK_BOT_TOKEN`, `MOLTBOT_DISCORD_BOT_TOKEN`).  
-   - Set `MOLTBOT_LIVE_SEND=1`.  
+   - Export bot tokens (`OPENCLAW_SLACK_BOT_TOKEN`, `OPENCLAW_DISCORD_BOT_TOKEN`).  
+   - Set `OPENCLAW_LIVE_SEND=1`.  
    - Switch `dry_run` to `false` in the `.local` override.
 
 3. **Incremental expansion**  

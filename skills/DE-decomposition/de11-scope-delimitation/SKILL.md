@@ -2,7 +2,7 @@
 name: de11-scope-delimitation
 description: Apply DE11 Scope Delimitation to define precise boundaries of what is included versus excluded from consideration.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de11-scope-delimitation","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de11-scope-delimitation","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # DE11 Scope Delimitation
@@ -94,7 +94,7 @@ const result = applyModel("DE11", "Define precise boundaries of what is included
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de11-scope-delimitation"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("DE11", "Define precise boundaries of what is included
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/de11-scope-delimitation
+openclaw-registry install hummbl-agent/de11-scope-delimitation
 ```
 
 ### Usage with Commands

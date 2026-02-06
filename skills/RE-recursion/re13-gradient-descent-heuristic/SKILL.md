@@ -2,7 +2,7 @@
 name: re13-gradient-descent-heuristic
 description: Apply RE13 Gradient Descent Heuristic to iteratively adjust toward improvement, even without perfect knowledge of optimal direction.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re13-gradient-descent-heuristic","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re13-gradient-descent-heuristic","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # RE13 Gradient Descent Heuristic
@@ -94,7 +94,7 @@ const result = applyModel("RE13", "Iteratively adjust toward improvement, even w
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re13-gradient-descent-heuristic"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("RE13", "Iteratively adjust toward improvement, even w
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/re13-gradient-descent-heuristic
+openclaw-registry install hummbl-agent/re13-gradient-descent-heuristic
 ```
 
 ### Usage with Commands

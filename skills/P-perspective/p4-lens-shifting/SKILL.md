@@ -2,7 +2,7 @@
 name: p4-lens-shifting
 description: Apply P4 Lens Shifting to deliberately adopt different interpretive frameworks to reveal hidden aspects.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p4-lens-shifting","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p4-lens-shifting","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # P4 Lens Shifting
@@ -94,7 +94,7 @@ const result = applyModel("P4", "Deliberately adopt different interpretive frame
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p4-lens-shifting"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("P4", "Deliberately adopt different interpretive frame
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/p4-lens-shifting
+openclaw-registry install hummbl-agent/p4-lens-shifting
 ```
 
 ### Usage with Commands

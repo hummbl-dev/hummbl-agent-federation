@@ -60,7 +60,7 @@ This repository integrates with external agents (Claude Code, Codex, Grok) under
 
 **Required practices:**
 
-- Use `configs/moltbot/*.local.json` templates (gitignored)
+- Use `configs/openclaw/*.local.json` templates (gitignored)
 - Run `scripts/lint-secret-scan.sh` before commits
 - Run `scripts/lint-secrets-policy.sh` to validate policy compliance
 - Store production secrets in secure vaults (1Password, Keychain, etc.)

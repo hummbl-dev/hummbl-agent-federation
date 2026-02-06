@@ -2,7 +2,7 @@
 name: co17-orchestration-vs-choreography
 description: Apply CO17 Orchestration vs Choreography to choose between centralized coordination or distributed peer-to-peer interaction.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co17-orchestration-vs-choreography","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co17-orchestration-vs-choreography","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO17 Orchestration vs Choreography
@@ -94,7 +94,7 @@ const result = applyModel("CO17", "Choose between centralized coordination or di
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co17-orchestration-vs-choreography"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO17", "Choose between centralized coordination or di
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co17-orchestration-vs-choreography
+openclaw-registry install hummbl-agent/co17-orchestration-vs-choreography
 ```
 
 ### Usage with Commands

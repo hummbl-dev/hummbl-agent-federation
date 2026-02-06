@@ -2,7 +2,7 @@
 name: sy11-governance-patterns
 description: Apply SY11 Governance Patterns to design decision rights, accountability structures, and coordination mechanisms.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy11-governance-patterns","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy11-governance-patterns","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # SY11 Governance Patterns
@@ -94,7 +94,7 @@ const result = applyModel("SY11", "Design decision rights, accountability struct
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/SY-systems/sy11-governance-patterns"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("SY11", "Design decision rights, accountability struct
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/sy11-governance-patterns
+openclaw-registry install hummbl-agent/sy11-governance-patterns
 ```
 
 ### Usage with Commands

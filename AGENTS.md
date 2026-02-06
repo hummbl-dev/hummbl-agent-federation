@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-Runtime code lives in `packages/` (kernel, router, adapters, vendor-bridge) and stays in strict ESM TypeScript; keep registries in sync with the Markdown briefs inside `agents/`, `commands/`, and Base120 skill folders like `P-perspective/`. `_state/` stores dated run logs, prompts, and artifacts, while `docs/` holds canonical workflows plus validation checklists referenced during reviews. Runners are governed by `configs/moltbot`, `configs/codex`, and `configs/process-policy.*`, and automation plus lint guards live in `scripts/`.
+Runtime code lives in `packages/` (kernel, router, adapters, vendor-bridge) and stays in strict ESM TypeScript; keep registries in sync with the Markdown briefs inside `agents/`, `commands/`, and Base120 skill folders like `P-perspective/`. `_state/` stores dated run logs, prompts, and artifacts, while `docs/` holds canonical workflows plus validation checklists referenced during reviews. Runners are governed by `configs/openclaw`, `configs/codex`, and `configs/process-policy.*`, and automation plus lint guards live in `scripts/`.
 
 ## Build, Test, and Development Commands
 
@@ -34,4 +34,4 @@ Commits follow the Conventional Commits flavor visible in `git log` (`feat(llm):
 
 ## Security & Configuration Tips
 
-Never commit live API keys—use the `configs/moltbot/*.local.json` templates and run `scripts/lint-secret-scan.sh` plus `scripts/lint-secrets-policy.sh` before pushing. Changes that expand process or network capability must update `configs/process-policy.allowlist`, pass `scripts/lint-network-policy.sh` and `scripts/verify-hummbl.sh`, and document the guardrail delta inside `docs/validation-checklist.md`.
+Never commit live API keys—use the `configs/openclaw/*.local.json` templates and run `scripts/lint-secret-scan.sh` plus `scripts/lint-secrets-policy.sh` before pushing. Changes that expand process or network capability must update `configs/process-policy.allowlist`, pass `scripts/lint-network-policy.sh` and `scripts/verify-hummbl.sh`, and document the guardrail delta inside `docs/validation-checklist.md`.

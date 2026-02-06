@@ -808,8 +808,8 @@
       "sha256_tree": "497318b6ab385d7328503a3a5e3950191f3d0e2f50a9732f71b4261527322f69"
     },
     {
-      "id": "moltbot-registry-cli",
-      "path": "skills/moltbot-registry-cli",
+      "id": "openclaw-registry-cli",
+      "path": "skills/openclaw-registry-cli",
       "sha256_tree": "8ba737a8ab1da857862c0626e1113ae5d96647aaa18e045b133563b7c8f3c375"
     },
     {

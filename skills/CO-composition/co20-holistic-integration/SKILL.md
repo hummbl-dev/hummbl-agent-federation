@@ -2,7 +2,7 @@
 name: co20-holistic-integration
 description: Apply CO20 Holistic Integration to unify disparate elements into coherent, seamless whole where boundaries dissolve.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co20-holistic-integration","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co20-holistic-integration","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO20 Holistic Integration
@@ -94,7 +94,7 @@ const result = applyModel("CO20", "Unify disparate elements into coherent, seaml
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co20-holistic-integration"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO20", "Unify disparate elements into coherent, seaml
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co20-holistic-integration
+openclaw-registry install hummbl-agent/co20-holistic-integration
 ```
 
 ### Usage with Commands

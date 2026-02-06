@@ -48,7 +48,7 @@
     }
   },
   "skills": {
-    "registry": "moltbot-registry",
+    "registry": "openclaw-registry",
     "autoInstall": [
       "hummbl-agent/p1-first-principles-framing"
     ],

@@ -2,7 +2,7 @@
 name: co5-emergence
 description: Apply CO5 Emergence to recognize higher-order behavior arising from component interactions.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co5-emergence","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co5-emergence","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO5 Emergence
@@ -94,7 +94,7 @@ const result = applyModel("CO5", "Recognize higher-order behavior arising from c
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co5-emergence"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO5", "Recognize higher-order behavior arising from c
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co5-emergence
+openclaw-registry install hummbl-agent/co5-emergence
 ```
 
 ### Usage with Commands

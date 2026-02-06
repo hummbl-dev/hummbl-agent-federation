@@ -26,7 +26,7 @@ mkdir -p hummbl-agent/{skills,agents,commands,configs,sessions}
 cd hummbl-agent
 
 # Copy configurations
-cp configs/moltbot/gateway.json ~/.moltbot/moltbot.json
+cp configs/openclaw/gateway.json ~/.openclaw/openclaw.json
 cp configs/learning/continuous-learning.json ~/.claude/homunculus/config.json
 ```
 
@@ -53,10 +53,10 @@ cp configs/claude-code/settings.json ~/.claude/settings.json
 
 ```bash
 # Start HUMMBL gateway
-moltbot gateway --config ~/.moltbot/moltbot.json --port 18789
+openclaw gateway --config ~/.openclaw/openclaw.json --port 18789
 
 # Verify configuration
-moltbot gateway status
+openclaw gateway status
 ```
 
 ### **Step 4: Use local communication skill**
@@ -107,7 +107,7 @@ const integrationTasks = {
 
 ```bash
 # 3. Coordinate agents for feature development
-moltbot agent --message "Apply multi-agent coordination using P1, DE3, SY8 for user authentication feature"
+openclaw agent --message "Apply multi-agent coordination using P1, DE3, SY8 for user authentication feature"
 
 # Agent handoff sequence:
 # claude-sonnet-4.5 → windsurf-cascade → chatgpt-5 → cursor
@@ -294,7 +294,7 @@ const improvementCycle = {
 /apply-transformation DE3 "Break API development into design, implementation, testing, deployment phases"
 
 # Coordinate development team
-moltbot agent --message "Apply multi-agent coordination for API development using claude-sonnet for architecture, windsurf-cascade for implementation"
+openclaw agent --message "Apply multi-agent coordination for API development using claude-sonnet for architecture, windsurf-cascade for implementation"
 
 # Daily progress tracking
 scripts/generate-sitrep.sh
@@ -342,10 +342,10 @@ echo "Starting feature development workflow..."
 /apply-transformation P1 "Frame new real-time collaboration feature from multiple stakeholder perspectives"
 
 # 2. Coordinate agents
-moltbot agent --session hummbl-main --message "Coordinate feature development using multi-agent coordination skill"
+openclaw agent --session hummbl-main --message "Coordinate feature development using multi-agent coordination skill"
 
 # 3. Monitor progress
-moltbot agent --session hummbl-sitrep --message "Generate SITREP for feature development progress"
+openclaw agent --session hummbl-sitrep --message "Generate SITREP for feature development progress"
 
 # 4. Quality validation
 /apply-transformation IN2 "Identify potential failures in our collaboration feature launch"
@@ -433,7 +433,7 @@ echo "Starting weekly coordination optimization..."
 /apply-transformation SY8 "Identify coordination patterns from the past week"
 
 # 2. Generate improvement recommendations
-moltbot agent --message "Apply RE2 to refine coordination protocols based on weekly performance"
+openclaw agent --message "Apply RE2 to refine coordination protocols based on weekly performance"
 
 # 3. Update configurations
 scripts/generate-sitrep.sh
@@ -477,10 +477,10 @@ echo "## Mental Model Application
 
 ```bash
 # Automated SITREP distribution
-moltbot message send --to #hummbl-updates --message "$(scripts/generate-sitrep.sh)"
+openclaw message send --to #hummbl-updates --message "$(scripts/generate-sitrep.sh)"
 
 # Mental model alerts
-moltbot message send --to #hummbl-coordination --message "🧠 Applied P1 to reduce requirements to first principles - see project board for details"
+openclaw message send --to #hummbl-coordination --message "🧠 Applied P1 to reduce requirements to first principles - see project board for details"
 ```
 
 ## Best Practices Summary

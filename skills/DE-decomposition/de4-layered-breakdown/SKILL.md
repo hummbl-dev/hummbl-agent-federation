@@ -2,7 +2,7 @@
 name: de4-layered-breakdown
 description: Apply DE4 Layered Breakdown to decompose from system to subsystem to component progressively.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de4-layered-breakdown","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de4-layered-breakdown","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # DE4 Layered Breakdown
@@ -94,7 +94,7 @@ const result = applyModel("DE4", "Decompose from system to subsystem to componen
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de4-layered-breakdown"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("DE4", "Decompose from system to subsystem to componen
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/de4-layered-breakdown
+openclaw-registry install hummbl-agent/de4-layered-breakdown
 ```
 
 ### Usage with Commands

@@ -2,7 +2,7 @@
 name: de1-root-cause-analysis-5-whys
 description: Apply DE1 Root Cause Analysis (5 Whys) to iteratively ask why problems occur until fundamental cause emerges.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de1-root-cause-analysis-5-whys","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de1-root-cause-analysis-5-whys","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # DE1 Root Cause Analysis (5 Whys)
@@ -94,7 +94,7 @@ const result = applyModel("DE1", "Iteratively ask why problems occur until funda
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de1-root-cause-analysis-5-whys"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("DE1", "Iteratively ask why problems occur until funda
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/de1-root-cause-analysis-5-whys
+openclaw-registry install hummbl-agent/de1-root-cause-analysis-5-whys
 ```
 
 ### Usage with Commands

@@ -2,7 +2,7 @@
 name: de10-abstraction-laddering
 description: Apply DE10 Abstraction Laddering to move up and down conceptual hierarchy to find appropriate solution level.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de10-abstraction-laddering","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de10-abstraction-laddering","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # DE10 Abstraction Laddering
@@ -94,7 +94,7 @@ const result = applyModel("DE10", "Move up and down conceptual hierarchy to find
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de10-abstraction-laddering"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("DE10", "Move up and down conceptual hierarchy to find
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/de10-abstraction-laddering
+openclaw-registry install hummbl-agent/de10-abstraction-laddering
 ```
 
 ### Usage with Commands

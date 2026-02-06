@@ -11,7 +11,7 @@ function guard(path) {
   if (cfg.dry_run === false) fail(`${path}: dry_run must remain true`);
 }
 
-guard("configs/moltbot/llm.anthropic.json");
-guard("configs/moltbot/llm.openai.json");
+guard("configs/openclaw/llm.anthropic.json");
+guard("configs/openclaw/llm.openai.json");
 
 console.log("[OK] committed LLM configs remain disabled + dry_run");

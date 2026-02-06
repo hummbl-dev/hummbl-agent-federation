@@ -2,7 +2,7 @@
 name: p12-temporal-framing
 description: Apply P12 Temporal Framing to organize understanding across past causes, present states, and future implications.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p12-temporal-framing","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p12-temporal-framing","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # P12 Temporal Framing
@@ -94,7 +94,7 @@ const result = applyModel("P12", "Organize understanding across past causes, pre
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p12-temporal-framing"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("P12", "Organize understanding across past causes, pre
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/p12-temporal-framing
+openclaw-registry install hummbl-agent/p12-temporal-framing
 ```
 
 ### Usage with Commands

@@ -2,7 +2,7 @@
 name: de19-critical-path-unwinding
 description: Apply DE19 Critical Path Unwinding to trace longest sequence of dependent tasks determining minimum project duration.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de19-critical-path-unwinding","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de19-critical-path-unwinding","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # DE19 Critical Path Unwinding
@@ -94,7 +94,7 @@ const result = applyModel("DE19", "Trace longest sequence of dependent tasks det
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/DE-decomposition/de19-critical-path-unwinding"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("DE19", "Trace longest sequence of dependent tasks det
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/de19-critical-path-unwinding
+openclaw-registry install hummbl-agent/de19-critical-path-unwinding
 ```
 
 ### Usage with Commands

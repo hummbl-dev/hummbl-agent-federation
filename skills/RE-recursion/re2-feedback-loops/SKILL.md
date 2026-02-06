@@ -2,7 +2,7 @@
 name: re2-feedback-loops
 description: Apply RE2 Feedback Loops to create mechanisms where system outputs influence future inputs.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re2-feedback-loops","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re2-feedback-loops","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # RE2 Feedback Loops
@@ -94,7 +94,7 @@ const result = applyModel("RE2", "Create mechanisms where system outputs influen
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re2-feedback-loops"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("RE2", "Create mechanisms where system outputs influen
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/re2-feedback-loops
+openclaw-registry install hummbl-agent/re2-feedback-loops
 ```
 
 ### Usage with Commands

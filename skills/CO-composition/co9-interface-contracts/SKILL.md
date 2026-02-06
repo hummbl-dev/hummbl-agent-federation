@@ -2,7 +2,7 @@
 name: co9-interface-contracts
 description: Apply CO9 Interface Contracts to define explicit agreements about data structures and behavior between components.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co9-interface-contracts","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co9-interface-contracts","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # CO9 Interface Contracts
@@ -94,7 +94,7 @@ const result = applyModel("CO9", "Define explicit agreements about data structur
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/CO-composition/co9-interface-contracts"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("CO9", "Define explicit agreements about data structur
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/co9-interface-contracts
+openclaw-registry install hummbl-agent/co9-interface-contracts
 ```
 
 ### Usage with Commands

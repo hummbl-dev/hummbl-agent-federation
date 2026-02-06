@@ -2,7 +2,7 @@
 name: re6-recursive-framing
 description: Apply RE6 Recursive Framing to apply mental models to the process of selecting mental models.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re6-recursive-framing","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re6-recursive-framing","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # RE6 Recursive Framing
@@ -94,7 +94,7 @@ const result = applyModel("RE6", "Apply mental models to the process of selectin
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re6-recursive-framing"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("RE6", "Apply mental models to the process of selectin
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/re6-recursive-framing
+openclaw-registry install hummbl-agent/re6-recursive-framing
 ```
 
 ### Usage with Commands

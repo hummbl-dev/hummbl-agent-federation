@@ -2,7 +2,7 @@
 name: re11-calibration-loops
 description: Apply RE11 Calibration Loops to repeatedly check predictions against outcomes to improve forecasting accuracy.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re11-calibration-loops","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re11-calibration-loops","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # RE11 Calibration Loops
@@ -94,7 +94,7 @@ const result = applyModel("RE11", "Repeatedly check predictions against outcomes
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/RE-recursion/re11-calibration-loops"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("RE11", "Repeatedly check predictions against outcomes
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/re11-calibration-loops
+openclaw-registry install hummbl-agent/re11-calibration-loops
 ```
 
 ### Usage with Commands

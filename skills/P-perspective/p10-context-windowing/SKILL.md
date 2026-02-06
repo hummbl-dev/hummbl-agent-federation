@@ -2,7 +2,7 @@
 name: p10-context-windowing
 description: Apply P10 Context Windowing to define explicit boundaries in time, space, and scope for analysis or action.
 version: 1.0.0
-metadata: {"moltbot":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p10-context-windowing","systems":["aarch64-darwin","x86_64-linux"]}}}
+metadata: {"openclaw":{"nix":{"plugin":"github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p10-context-windowing","systems":["aarch64-darwin","x86_64-linux"]}}}
 ---
 
 # P10 Context Windowing
@@ -94,7 +94,7 @@ const result = applyModel("P10", "Define explicit boundaries in time, space, and
 
 ```nix
 {
-  programs.moltbot.plugins = [
+  programs.openclaw.plugins = [
     { source = "github:hummbl-dev/hummbl-agent?dir=skills/P-perspective/p10-context-windowing"; }
   ];
 }
@@ -103,7 +103,7 @@ const result = applyModel("P10", "Define explicit boundaries in time, space, and
 ### Manual Installation
 
 ```bash
-moltbot-registry install hummbl-agent/p10-context-windowing
+openclaw-registry install hummbl-agent/p10-context-windowing
 ```
 
 ### Usage with Commands

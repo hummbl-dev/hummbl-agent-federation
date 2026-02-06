@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Send a text message to a Slack channel (or DM) via a Moltbot adapter.
+Send a text message to a Slack channel (or DM) via a OpenClaw adapter.
 
 ## Inputs
 
