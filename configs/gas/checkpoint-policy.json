@@ -1,0 +1,87 @@
+{
+  "version": "0.0.1",
+  "description": "Checkpoint and rollback policy for the HUMMBL G.A.S. Agent",
+
+  "triggers": {
+    "mandatory": [
+      "before_self_modify",
+      "before_policy_deploy",
+      "before_boundary_change",
+      "before_learning_update"
+    ],
+    "scheduled": {
+      "daily": "06:00 UTC",
+      "weekly": "Sunday 00:00 UTC"
+    },
+    "optional": [
+      "manual_request",
+      "pre_experiment"
+    ]
+  },
+
+  "contents": {
+    "always": {
+      "config_state": "full",
+      "policy_state": "full",
+      "audit_log_hash": "sha256"
+    },
+    "if_self_modify": {
+      "learning_weights": "full",
+      "feedback_aggregates": "full",
+      "violation_patterns": "full"
+    },
+    "metadata": [
+      "timestamp",
+      "trigger_reason",
+      "actor",
+      "parent_checkpoint"
+    ]
+  },
+
+  "storage": {
+    "location": "_state/gas/checkpoints/",
+    "naming_template": "{timestamp}-{trigger}-{hash}.checkpoint",
+    "format": "compressed_json",
+    "integrity": {
+      "hash_algorithm": "sha256",
+      "sign_checkpoints": true
+    }
+  },
+
+  "retention": {
+    "recent_days": 30,
+    "monthly_months": 12,
+    "yearly": "indefinite",
+    "preserve_tagged": true
+  },
+
+  "rollback": {
+    "default_target": "last_known_good",
+    "selection_criteria": {
+      "before_triggering_change": true,
+      "compliance_score_threshold": 80,
+      "verified_integrity": true
+    },
+    "execution": {
+      "dry_run_first": true,
+      "backup_current_state": true,
+      "verify_after_restore": true,
+      "notify_stakeholders": true
+    },
+    "on_failure": {
+      "retry_count": 1,
+      "escalate_to": "L3_emergency"
+    }
+  },
+
+  "cleanup": {
+    "schedule": "daily",
+    "preserve_tagged_always": true,
+    "preserve_monthly_samples": true
+  },
+
+  "meta": {
+    "created": "2026-02-05",
+    "owner": "gas-agent"
+  }
+}

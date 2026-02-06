@@ -4,6 +4,20 @@
 # State
 _state/runs/*
 !_state/runs/.gitkeep
+
+# GAS Agent State (keep structure, ignore data)
+_state/gas/audit/daily/*
+!_state/gas/audit/daily/.gitkeep
+_state/gas/audit/indexes/*
+!_state/gas/audit/indexes/.gitkeep
+_state/gas/audit/checksums/*
+!_state/gas/audit/checksums/.gitkeep
+_state/gas/checkpoints/*
+!_state/gas/checkpoints/.gitkeep
+_state/gas/attestations/*
+!_state/gas/attestations/.gitkeep
+_state/gas/learning/*
+!_state/gas/learning/.gitkeep
 packages/_state/runs/*
 !packages/_state/runs/.gitkeep
 node_modules/

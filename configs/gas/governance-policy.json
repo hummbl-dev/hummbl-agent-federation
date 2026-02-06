@@ -1,0 +1,100 @@
+{
+  "version": "0.0.1",
+  "description": "Meta-governance rules for the HUMMBL G.A.S. Agent",
+
+  "autonomy": {
+    "authority": "autonomous-with-audit",
+    "scope": ["code", "agents", "infrastructure", "human-workflows"],
+
+    "boundaries": {
+      "allowed": {
+        "read": ["configs", "policies", "audit-logs", "checkpoints"],
+        "write": ["audit-events", "checkpoints", "learning-state"],
+        "enforce": ["low-risk-policies", "established-policies"]
+      },
+      "restricted": {
+        "write": ["policies"],
+        "modify": ["own-boundaries"]
+      },
+      "forbidden": {
+        "delete": ["audit-logs"],
+        "expand": ["own-autonomy"],
+        "bypass": ["approval-gates"]
+      }
+    },
+
+    "limits": {
+      "rate": {
+        "actions_per_minute": 60,
+        "api_calls_per_hour": 1000
+      },
+      "resources": {
+        "max_memory_mb": 512,
+        "max_cpu_percent": 25
+      },
+      "output": {
+        "max_file_size_kb": 1024,
+        "max_response_length": 10000
+      }
+    }
+  },
+
+  "approval_gates": {
+    "self_modification": {
+      "requires": ["owner", "security"],
+      "timeout": "never_auto_approve"
+    },
+    "policy_change": {
+      "requires": ["policy_owner"],
+      "timeout_hours": 72
+    },
+    "high_risk_action": {
+      "requires": ["any_approver"],
+      "timeout_hours": 24
+    },
+    "autonomy_change": {
+      "requires": ["designated_owner", "security"],
+      "timeout": "never_auto_approve"
+    }
+  },
+
+  "escalation": {
+    "levels": {
+      "L1_auto": {
+        "handler": "gas-agent",
+        "actions": ["log", "enforce", "notify-owner"]
+      },
+      "L2_review": {
+        "handler": "policy-owner",
+        "actions": ["review", "approve-exception", "update-policy"]
+      },
+      "L3_emergency": {
+        "handler": "security-team",
+        "actions": ["block", "investigate", "incident-response"]
+      }
+    },
+    "thresholds": {
+      "severity_trigger": "medium",
+      "frequency_trigger": 3,
+      "time_unresolved_hours": 24
+    }
+  },
+
+  "audit": {
+    "required": true,
+    "every_action": true,
+    "include_provenance": true,
+    "retention": {
+      "hot_days": 90,
+      "warm_months": 12,
+      "cold_years": 7
+    }
+  },
+
+  "meta": {
+    "created": "2026-02-05",
+    "owner": "gas-agent",
+    "reviewers": ["security-team", "platform-team"],
+    "review_interval_days": 90
+  }
+}
