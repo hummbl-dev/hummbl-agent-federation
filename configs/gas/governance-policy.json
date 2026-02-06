@@ -1,6 +1,12 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Meta-governance rules for the HUMMBL G.A.S. Agent",
+
+  "action_space": {
+    "$ref": "./action-space.json",
+    "framework": "CAES",
+    "version": "1.0.0"
+  },
 
   "autonomy": {
     "authority": "autonomous-with-audit",

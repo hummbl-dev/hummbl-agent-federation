@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://hummbl.dev/schemas/action-space/v1.0",
+  "title": "HUMMBL G.A.S. Agent ACTION SPACE Schema",
+  "version": "1.0.0",
+  "description": "CAES-classified action space for governed agent execution",
+
+  "definitions": {
+    "ClassificationLevel": {
+      "type": "string",
+      "enum": ["C0", "C1", "C2", "C3", "C4", "C5"],
+      "description": "C0=none, C1=low, C2=medium, C3=high, C4=critical, C5=restricted"
+    },
+    "AuthorityLevel": {
+      "type": "string",
+      "enum": ["A0-SELF", "A1-NOTIFY", "A2-REVIEW", "A3-APPROVE", "A4-MULTI", "A5-EMERGENCY"],
+      "description": "Required approval authority"
+    },
+    "EffectLevel": {
+      "type": "string",
+      "enum": ["E0-PURE", "E1-REVERT", "E2-CHECKPOINT", "E3-COMPENSATE", "E4-DEFERRED", "E5-PERMANENT"],
+      "description": "Side effect and reversibility properties"
+    },
+    "ScopeLevel": {
+      "type": "string",
+      "enum": ["S0-SELF", "S1-LOCAL", "S2-DOMAIN", "S3-CROSS", "S4-SYSTEM", "S5-EXTERNAL"],
+      "description": "Resource boundary and blast radius"
+    },
+    "CAESCode": {
+      "type": "string",
+      "pattern": "^C[0-5]-A[0-5]-(SELF|NOTIFY|REVIEW|APPROVE|MULTI|EMERGENCY)-E[0-5]-(PURE|REVERT|CHECKPOINT|COMPENSATE|DEFERRED|PERMANENT)-S[0-5]-(SELF|LOCAL|DOMAIN|CROSS|SYSTEM|EXTERNAL)$|^C[0-5]-A[0-5]-E[0-5]-S[0-5]$",
+      "description": "Combined CAES classification code"
+    },
+    "ActionDefinition": {
+      "type": "object",
+      "required": ["id", "caes", "description", "authority"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "description": "Action identifier"
+        },
+        "caes": {
+          "$ref": "#/definitions/CAESCode"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "authority": {
+          "$ref": "#/definitions/AuthorityLevel"
+        },
+        "effect": {
+          "type": "string",
+          "enum": ["none", "reversible", "checkpoint-recoverable", "compensating", "deferred-reversible", "permanent"]
+        },
+        "requires": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Preconditions for action"
+        },
+        "triggers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Actions/events triggered by this action"
+        },
+        "gitops": {
+          "type": "boolean",
+          "default": false,
+          "description": "Requires GitOps commit"
+        },
+        "ci_check": {
+          "type": "boolean",
+          "default": false,
+          "description": "Requires CI validation"
+        },
+        "cost_check": {
+          "type": "boolean",
+          "default": false,
+          "description": "Requires cost policy check"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["ALLOWED", "RESTRICTED", "FORBIDDEN", "FORBIDDEN_WITHOUT_OVERRIDE"],
+          "default": "ALLOWED"
+        },
+        "timeout": {
+          "type": "string",
+          "description": "Timeout for approval (e.g., '24h', '72h', 'never')"
+        },
+        "escalates_to": {
+          "type": "string",
+          "description": "Escalation level if action fails or times out"
+        }
+      }
+    },
+    "ConstraintSet": {
+      "type": "object",
+      "properties": {
+        "max_classification": { "$ref": "#/definitions/ClassificationLevel" },
+        "max_scope": { "$ref": "#/definitions/ScopeLevel" },
+        "max_effect": { "$ref": "#/definitions/EffectLevel" },
+        "forbidden_actions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "rate_limits": {
+          "type": "object",
+          "additionalProperties": { "type": "integer" }
+        }
+      }
+    },
+    "Epoch": {
+      "type": "object",
+      "required": ["id", "started", "policy_hash"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}-\\d{3}$"
+        },
+        "started": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "policy_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "mrcc_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "monotonic_properties": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "type": "object",
+  "required": ["version", "actions", "mrcc", "ncc"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "actions": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/ActionDefinition" }
+    },
+    "mrcc": {
+      "$ref": "#/definitions/ConstraintSet",
+      "description": "Maximum Capability Constraints (hard limits)"
+    },
+    "ncc": {
+      "$ref": "#/definitions/ConstraintSet",
+      "description": "Nominal Capability Constraints (default limits)"
+    },
+    "current_epoch": {
+      "$ref": "#/definitions/Epoch"
+    }
+  }
+}
