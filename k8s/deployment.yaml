@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: federation
+  namespace: federation
+  labels:
+    app: federation
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: federation
+  template:
+    metadata:
+      labels:
+        app: federation
+    spec:
+      containers:
+      - name: federation
+        image: hummbl/federation:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: FEDERATION_ENV
+          value: "production"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "2000m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: federation
+  namespace: federation
+spec:
+  selector:
+    app: federation
+  ports:
+  - port: 80
+    targetPort: 8000

@@ -1,0 +1,73 @@
+{
+  "name": "federation-vscode",
+  "displayName": "Federation",
+  "description": "HUMMBL Agent Federation for VS Code",
+  "version": "0.1.0",
+  "publisher": "hummbl",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Machine Learning",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "federation.routeSelection",
+        "title": "Route Selection",
+        "category": "Federation"
+      },
+      {
+        "command": "federation.switchProvider",
+        "title": "Switch Provider",
+        "category": "Federation"
+      },
+      {
+        "command": "federation.compareProviders",
+        "title": "Compare Providers",
+        "category": "Federation"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "federation.routeSelection",
+          "group": "federation@1",
+          "when": "editorHasSelection"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Federation",
+      "properties": {
+        "federation.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Your Federation API key"
+        },
+        "federation.baseUrl": {
+          "type": "string",
+          "default": "https://api.federation.hummbl.io/v1",
+          "description": "Federation API endpoint"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@hummbl/federation-sdk": "^0.1.0"
+  }
+}

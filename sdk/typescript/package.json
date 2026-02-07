@@ -1,0 +1,25 @@
+{
+  "name": "@hummbl/federation-sdk",
+  "version": "0.1.0",
+  "description": "Official TypeScript SDK for the HUMMBL Agent Federation",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts"
+  },
+  "keywords": [
+    "ai",
+    "llm",
+    "routing",
+    "federation",
+    "hummbl"
+  ],
+  "author": "HUMMBL",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
